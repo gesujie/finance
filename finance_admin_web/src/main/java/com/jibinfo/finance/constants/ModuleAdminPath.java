@@ -36,7 +36,4 @@ public interface ModuleAdminPath {
 	String CHART_ADMIN = "admin/chart";
 
 
-
-
-
 }
