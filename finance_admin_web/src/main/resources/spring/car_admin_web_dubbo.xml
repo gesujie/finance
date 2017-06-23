@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="carBrandService" interface="com.jibinfo.finance.service.car.CarBrandService" check="false" timeout="20000"/>
+
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="carSeriesService" interface="com.jibinfo.finance.service.car.CarSeriesService" check="false" timeout="20000"/>
+
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="carModelService" interface="com.jibinfo.finance.service.car.CarModelService" check="false" timeout="20000"/>
+
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="carLoanRateService" interface="com.jibinfo.finance.service.car.CarLoanRateService" check="false" timeout="20000"/>
+
+</beans>

@@ -1,0 +1,24 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			编码
+		</span>
+		<input style="width:355px" type="text" name="code" class="required"/>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			名称
+		</span>
+		<input style="width:355px" type="text" name="name" class="required"/>
+	</div>
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			描述
+		</span>
+        <input style="width:355px" type="text" name="remark" />
+    </div>
+</form>

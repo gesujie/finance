@@ -1,0 +1,41 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+    <input name="id" type="hidden" value="$!template.id" />
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">类型</span>
+        <select class="form-control"  name="type" style="width:370px;height:30px;">
+            <option value='0' #if($!template.type == '0') selected #end>验证码</option>
+            <option value='1' #if($!template.type == '1') selected #end>短信</option>
+        </select>
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">CODE</span>
+        <input style="width:370px" type="text" name="code" id="code" value="$!template.code" required/>
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">名称</span>
+        <input style="width:370px" type="text" name="name" id="name" value="$!template.name" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">内容</span>
+        <input style="width:370px" type="text" name="content" id="content" value="$!template.content" required/>
+    </div
+        
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">描述</span>
+        <textarea style="width:370px" type="text" name="remark" id="remark">$!template.remark</textarea>
+    </div
+</form>

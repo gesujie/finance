@@ -1,0 +1,88 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			类型
+		</span>
+		<select id="type_options" style="width:355px;height:30px;">
+			<option value="0">--类型--</option>
+            <option value="1">--选项--</option>
+		</select>
+	</div>
+
+    <div id="options_type" style="display: none;">
+        <div class="space-4"></div>
+        <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			所属类型
+		</span>
+            <select name="parOptionId" id="parOptionId"  style="width:355px;height:30px;">
+                <option value="-1" selected>--类型--</option>
+            </select>
+        </div>
+	</div>
+
+    <div id="data_type_option">
+        <div class="space-4"></div>
+        <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			类型值
+		</span>
+            <select name="dataType" id="dataType"  style="width:355px;height:30px;">
+                <option value="single">单项选择</option>
+                <option value="multi">多项选择</option>
+                <option value="input">输入框</option>
+            </select>
+        </div>
+
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			名称
+		</span>
+        <input style="width:355px" type="text" name="optionname" required="true"/>
+    </div>
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			描述
+		</span>
+        <input style="width:355px" type="text" name="optiondesc"  required="true"/>
+	</div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			排序
+		</span>
+		<input  type="text"  class="input-mini" id="spinnerSort" name="orderno"  required="true"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			分值
+		</span>
+		<input type="text" name="score" class="input-mini"  id="spinnerSorce"  required="true"/>
+	</div>
+
+    <div class="space-4"></div>
+    <div class="input-group" id="uploader-demo">
+		<span class="input-group-addon input-group-addon-80">
+			图片
+		</span>
+        <img id="optionsImg" width="200px" height="100px" style="float: left"/>
+        <div style="float: left">
+            <input id="optionsUrl" type="hidden" name="url" />
+            <div id="filePicker">选择图片</div>
+            <a id="deleteImg" style="cursor: pointer;display: none;">删除</a>
+        </div>
+    </div>
+
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/surveys/data_add.js"></script>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/surveys/data_upload.js"></script>

@@ -1,0 +1,64 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/help.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="page_content">
+    	<div class="header-base-color">
+            <header class="bar bar-nav header-bg">
+                <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+                <h2 class="text-center bar-title">贷款指南</h2>
+            </header>
+        </div>    
+    	<div class="help_content">
+        	<ul class="www-list-click-able">
+                <li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明 <span class="icon icon-right pull-right"></span></a>
+    				<ul class="www-list-click-answer silder-up" style="display: none;">
+                        <li><span class="www-a">A:</span>
+    						<span class="www-ans">您已开通了企业专场，管理员可通过客服电话或者邮箱，发送增加服务模块的申请，
+    							我们收到申请后会有工作人员与您联系。联系电话：400-166-9790（9:00-18:00）Email：sales@zfenb.com</span>
+    					</li>
+                    </ul>
+                </li>
+                <li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明 <span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明<span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明 <span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明 <span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明<span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明<span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明 <span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明<span class="icon icon-right pull-right"></span></a>
+                </li>
+    			<li class="first-floor">
+                    <a href="javascript:;">贷款流程详细说明<span class="icon icon-right pull-right"></span></a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+	<div class="" id="panel-js-demo" style="display: none;">
+    	<div class="header-base-color">
+            <header class="bar bar-nav header-bg">
+                <a href="javascript:;" class="back-to-prev-btn close-dialog"><span class="icon icon-left"></span></a>
+                <h2 class="text-center bar-title">帮助中心</h2>
+            </header>
+        </div>
+        <div class="dialog-block"></div>
+    </div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/help.js"})
+#frontend_footer($footerParams)

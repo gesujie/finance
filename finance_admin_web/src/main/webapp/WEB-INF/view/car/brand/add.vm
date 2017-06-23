@@ -1,0 +1,61 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="brand-save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">品牌名称</span>
+		<input style="width:355px" type="text" name="brandName" id="brandName"/>
+	</div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">首字母</span>
+        <input style="width:200px" type="text" name="initials" id="initials"/>
+    </div
+	
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group" id="uploader-small">
+        <span class="input-group-addon input-group-addon-80">小图</span>
+        <img id="smallImg" width="200px" height="100px" style="float: left"/>
+        <div style="float: left">
+            <input id="small" type="hidden" name="small" />
+            <div id="smallFilePicker">选择图片</div>
+            <a id="deleteSmallImg" style="cursor: pointer;display: none;">删除</a>
+        </div>
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group" id="uploader-large">
+        <span class="input-group-addon input-group-addon-80">大图</span>
+        <img id="largerImg" width="200px" height="100px" style="float: left"/>
+        <div style="float: left">
+            <input id="large" type="hidden" name="large" />
+            <div id="largeFilePicker">选择图片</div>
+            <a id="deleteLargeImg" style="cursor: pointer;display: none;">删除</a>
+        </div>
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">类型</span>
+        <select class="form-control"  name="type" style="width:355px;height:30px;">
+            <option value='0' selected>自主品牌</option>
+            <option value='1'>非自主品牌</option>
+        </select>
+    </div
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/upload.js"></script>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/valid.js"></script>
+
+<style >
+    .input-group
+    .help-block{
+        display: inline-block;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>

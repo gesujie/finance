@@ -1,0 +1,40 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/comments.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">用户评论</h2>
+        </header>
+    </div>    
+	<div class="comment_content">
+		<div id="wrapper">
+    		<div id="scroller">
+				<div class="product-list">
+					<div class="utilities-my-profile tr_example hidden">
+						<div class="content-padded">
+							<div class="row">
+								<div class="user">
+                					<div class="userImg"><img src="$static_path/jibinfoFinance/mobile/images/user.png"/></div>
+                					<span>匿名</span>
+                				</div>
+                                <div class="user-right">
+                                    <span class="utilities-profile-title">INMIX音米男款可配近视偏光太阳镜 女潮开车司机</span>
+                                    <div class="utilities-star">
+                                        <div class="rating rating_div"></div>
+                                    </div>
+									<p class="date">04-15</p>
+                                </div>
+                   			</div>
+               			 </div>
+            		</div>
+                </div>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/comments.js"})
+#frontend_footer($footerParams)

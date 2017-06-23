@@ -1,0 +1,15 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">月供计算</h2>
+        </header>
+    </div>    
+	<div class="text-content">
+       
+	</div>
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/text.js"})
+#frontend_footer($footerParams)

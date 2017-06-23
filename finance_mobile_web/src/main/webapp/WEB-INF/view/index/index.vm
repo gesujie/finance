@@ -1,0 +1,57 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/index.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+    ##主内容开始
+    <div class="head-container">
+    	<div class="userImg"><a href="$mobile_finance_path/register/login.html"><img alt="" src="$static_path/jibinfoFinance/mobile/images/user.png"></a></div>
+    	<div class="websiteImg"><img class="sc-idx-usermsg-img" src="$static_path/jibinfoFinance/mobile/images/logo.png" alt=""></div>
+    	<div class="searchImg"><img src="$static_path/jibinfoFinance/mobile/images/sc_sb_select.png" alt=""></div>
+    </div>
+    
+    <div class="page-group">
+    	<div id="page-swiper" class="pages www-index">
+    		<div class="contents content-swiper" id=''>
+    			<div class="swiper-container" data-space-between='10'>
+    				<div class="swiper-wrapper" style="">
+    					<div class="swiper-slide swiper-wrapper"><div><img src="$static_path/jibinfoFinance/mobile/images/index_swipe1.jpg" alt=""></div></div>
+    					<div class="swiper-slide swiper-wrapper"><div><img src="$static_path/jibinfoFinance/mobile/images/index_swipe1.jpg" alt=""></div></div>
+    					<div class="swiper-slide swiper-wrapper"><div><img src="$static_path/jibinfoFinance/mobile/images/index_swipe1.jpg" alt=""></div></div>
+    					<div class="swiper-slide swiper-wrapper"><div><img src="$static_path/jibinfoFinance/mobile/images/index_swipe1.jpg" alt=""></div></div>
+                    </div>
+    				<div class="swiper-pagination"></div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+	##主内容结束
+	<div class="four-features">
+		 <ul class="profile-menu flex-container">
+              <li class="flex-item"><a href="$mobile_finance_path/account/loanApply.html"><img src="$static_path/jibinfoFinance/mobile/images/zidonglicai.png"><h2>帮您贷款</h2><h3>极速获取10万车贷额度</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/loanTest.html"><img src="$static_path/jibinfoFinance/mobile/images/regt_index.png"><h2>额度测算</h2><h3>完善信息，量身定额度</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/carActivity.html"><img src="$static_path/jibinfoFinance/mobile/images/youhui.png"><h2>优惠直通</h2><h3>零利率低利率促销车</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/activity.html"><img src="$static_path/jibinfoFinance/mobile/images/blue-car.png"><h2>贷款车型</h2><h3>多品牌多车型车贷办理</h3></a></li>
+	    </ul>
+    </div>
+	<div class="six-features">
+		 <ul class="profile-menu flex-container">
+              <li class="flex-item"><a href="$mobile_finance_path/account/appointment.html"><img src="$static_path/jibinfoFinance/mobile/images/hdb-hdb.png"><h3>合作经销商</h3></a></li>
+        	  <li class="flex-item"><a><img src="$static_path/jibinfoFinance/mobile/images/hdb-hdb.png"><h3>购车基金</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/calc.html"><img src="$static_path/jibinfoFinance/mobile/images/hdb-hdb.png"><h3>算月供</h3></a></li>
+        	  <li class="flex-item"><a><img src="$static_path/jibinfoFinance/mobile/images/insurance.png"><h3>保险比价</h3></a></li>
+			  <li class="flex-item"><a><img src="$static_path/jibinfoFinance/mobile/images/loan-help.png"><h3>贷款指南</h3></a></li>
+			  <li class="flex-item"><a><img src="$static_path/jibinfoFinance/mobile/images/user.png"><h3>我的贷款</h3></a></li>
+	    </ul>
+    </div>
+	<p class="loan_number">已有<span>467895</span>位用户成功获得贷款</p>
+	<p class="seeking_attention">更多详情,请关注"好车e贷"微信服务号</p>
+	<div class="three-features">
+		 <ul class="profile-menu flex-container">
+              <li class="flex-item"><a  href="$mobile_finance_path/account/laws.html"><h3>法律条款</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/aboutUs.html"><h3>关于我们</h3></a></li>
+        	  <li class="flex-item"><a href="$mobile_finance_path/account/myMessages.html"><h3>咨询留言</h3></a></li>
+	    </ul>
+    </div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/index.js"})
+#frontend_footer($footerParams)

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ===================================================================== -->
+    <!-- ===================================================================== -->
+    <appender name="log_console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t:%p] %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="DEBUG"/>
+            <param name="levelMax" value="ERROR"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <appender name="log_info" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="/logs/finance/finance_info.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="threshold" value="info"/>
+        <param name="immediateFlush" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t:%p] %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="INFO"/>
+            <param name="levelMax" value="INFO"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <appender name="log_debug" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="/logs/finance/finance_debug.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="threshold" value="debug"/>
+        <param name="immediateFlush" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t:%p] %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="DEBUG"/>
+            <param name="levelMax" value="DEBUG"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <appender name="log_error" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="/logs/finance/finance_error.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="threshold" value="error"/>
+        <param name="immediateFlush" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t:%p] %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="ERROR"/>
+            <param name="levelMax" value="ERROR"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+    <appender name="mail_error" class="org.apache.log4j.net.SMTPAppender">
+        <param name="threshold" value="error"/>
+        <param name="BufferSize" value="512"/><!-- 单位K -->
+        <param name="From" value="dev@jibinfo.com.cn"/>
+        <param name="SMTPHost" value="smtp.exmail.qq.com"/>
+        <param name="Subject" value="上汽金融车错误日志"/>
+        <param name="To" value="logs@jibinfo.com.cn"/>
+        <param name="SMTPUsername" value="dev@jibinfo.com.cn"/>
+        <param name="SMTPPassword" value="!QAZ2wsx"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss.SSS} [%p]-[%c] %m%n"/>
+        </layout>
+    </appender>
+
+
+    <!-- ===================================================================== -->
+    <!-- ===================================================================== -->
+    
+    <category name="org.springframework">
+        <level value="ERROR"/>
+        <appender-ref ref="log_error"/>
+<!-- 		<appender-ref ref="mail_error"/> -->
+    </category>
+    
+    <category name="com.alibaba">
+        <level value="ERROR"/>
+        <appender-ref ref="log_error"/>
+<!-- 		<appender-ref ref="mail_error"/> -->
+    </category>
+    
+     
+    <category name="com.jibinfo">
+        <level value="INFO"/>
+
+        <appender-ref ref="log_console"/>
+        <appender-ref ref="log_info"/>
+        <appender-ref ref="log_debug"/>
+        <appender-ref ref="log_error"/>
+<!--         <appender-ref ref="mail_error"/> -->
+    </category>
+
+</log4j:configuration>

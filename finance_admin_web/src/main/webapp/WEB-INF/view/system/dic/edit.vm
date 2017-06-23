@@ -1,0 +1,16 @@
+## 添加页面
+<form class="form-horizontal save-update-form" role="form" method="POST">
+    <div class="form-group">
+        <input type="hidden" name="id" value="$!model.id"/>
+        <label class="col-sm-2 control-label" for="form-field-1">字典编码</label>
+        <div class="col-sm-9">
+            <input type="text" name="code" value="$!model.code" class="col-xs-12 col-sm-10 required" readonly/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="form-field-1">字典名称</label>
+        <div class="col-sm-9">
+            <input type="text" name="name" value="$!model.name" class="col-xs-12 col-sm-10 required" />
+        </div>
+    </div>
+</form>

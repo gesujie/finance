@@ -1,0 +1,19 @@
+## 添加页面
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+    <input name="id" type="hidden" value="$!model.id" />
+	<div class="input-group"">
+		<span class="input-group-addon input-group-addon-80">
+			关键词
+		</span>
+		<input style="width:355px" type="text" name="words" value="$!model.words"/>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			描述
+		</span>
+		<input style="width:355px" type="text" name="remark" value="$!model.remark"/>
+	</div>
+</form>

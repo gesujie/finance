@@ -1,0 +1,71 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+    <input name="id" type="hidden" value="$!gateway.id" />
+     <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">来源名称</span>
+        <select style="width:355px" type="text" name="sourceName" id = "source">
+            <option value="">--请选择--</option>
+            #foreach($!dic in $!dicDetail)
+                <option code="$dic.code" value="$!dic.name" #if($!dic.name == $!gateway.sourceName) selected #end>$!dic.name</option>
+            #end
+        </select>
+    </div>
+    
+    <div class="space-4"></div>
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">来源CODE</span>
+        <input style="width:355px" type="text" name="sourceCode" id="sourceCode" readonly/>
+    </div>
+    
+    <div class="space-4"></div>
+
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">app_key</span>
+        <input style="width:355px" type="text" name="appKey" id="appKey" value="$!gateway.appKey" required />
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">app_secret</span>
+        <input style="width:355px" type="text" name="appSecret" id="appSecret" value="$!gateway.appSecret" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">请求URL</span>
+        <input style="width:355px" type="text" name="requestUrl" id="requestUrl" value="$!gateway.requestUrl" required/>
+    </div
+
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">签名字样</span>
+        <input style="width:355px" type="text" name="signName" id="signName" value="$!gateway.signName" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">类型</span>
+        <select class="form-control"  name="type" style="width:355px;height:30px;">
+            <option value='normal' #if($!gateway.type == 'normal') selected #end>normal</option>
+        </select>
+    </div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">状态</span>
+        <select class="form-control"  name="onOff" style="width:355px;height:30px;">
+            <option value='0' #if($!gateway.onOff == '0') selected #end>启用短信网关</option>
+            <option value='1' #if($!gateway.onOff == '1') selected #end>关闭短信网关</option>
+        </select>
+    </div>
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/sms/source.js"></script>

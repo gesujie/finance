@@ -1,0 +1,258 @@
+##设置css自定义样式
+#setCss()
+##设置导航栏
+#breadcrumbs("控制台")
+<div class="page-content"  style="height: 700px;overflow-y: scroll">
+	<div class="row">
+        <div class="tabbable">
+            <ul class="nav nav-tabs padding-0 tab-color-blue background-blue" id="myTab4">
+                <li class="active">
+                    <a data-toggle="tab" href="#home4">小插件</a>
+                </li>
+
+                <li>
+                    <a data-toggle="tab" href="#profile4">项目进度</a>
+                </li>
+
+                <li>
+                    <a data-toggle="tab" href="#dropdown14">数据报表</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#location14">地理位置</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home4" class="tab-pane in active">
+                    <div class="widget-main">
+                        <div class="control-group">
+                            <h4 class="lighter">
+                                <i class="icon-star orange"></i>
+                                磁盘空间:
+                            </h4>
+
+                            <div class="row" id="div-disk-space">
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 center">
+                                    <div class="knob-container inline">
+                                        <input type="text" class="input-small knob1" value="0" data-min="0" data-max="100" data-step="10" data-width="150" data-height="150" data-thickness=".2" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2  center">
+                                    <div class="knob-container inline">
+                                        <input type="text" class="input-small knob2" value="0" data-min="0" data-max="100" data-width="150" data-height="150" data-thickness=".2" data-fgColor="#87B87F" data-displayPrevious="true" data-angleArc="250" data-angleOffset="-125" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 center">
+                                    <div class="knob-container inline">
+                                        <input type="text" class="input-small knob3" data-min="0" data-max="10" data-width="150" data-height="150" data-thickness=".2" data-fgColor="#B8877F" data-angleOffset="90" data-cursor="true" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="progress" data-percent="1%">
+                                        <div class="progress-bar" style="width:1%;"></div>
+                                    </div>
+
+                                    <div class="progress progress-striped" data-percent="25%">
+                                        <div class="progress-bar progress-bar-success" style="width: 25%;"></div>
+                                    </div>
+
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" style="width: 40%;"></div>
+                                    </div>
+
+                                    <div class="progress progress-mini">
+                                        <div class="progress-bar progress-danger" style="width: 35%;"></div>
+                                    </div>
+
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" style="width: 35%;"></div>
+
+                                        <div class="progress-bar progress-bar-warning" style="width: 20%;"></div>
+
+                                        <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                                    </div>
+
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-purple" style="width: 65%"></div>
+                                    </div>
+
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-pink" style="width: 40%"></div>
+                                    </div>
+
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-yellow" style="width: 60%"></div>
+                                    </div>
+
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-inverse" style="width: 0%"></div>
+                                    </div>
+                                </div><!-- /span -->
+
+
+                            </div><!-- /row-fluid -->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="profile4" class="tab-pane">
+					#parse("./index/timeline.vm")
+                </div>
+
+                <div id="dropdown14" class="tab-pane" >
+                    <div id="ichart" style="height: 580px">
+
+
+                    </div>
+                </div>
+
+                <div id="location14" class="tab-pane">
+                    <div id="container" style="height: 580px">
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div><!-- /span -->
+	</div><!-- /.col -->
+</div>
+##设置自定义js
+#setJs("/jibinfoFinance/manager/js/finance/index/index.js")
+<script src="http://api.map.baidu.com/api?v=2.0&ak=6e0b36c0bfdd3c888f2c128a8192d7b9" type="text/javascript"></script>
+<script>
+
+var map = new BMap.Map("container");          // 创建地图实例
+map.centerAndZoom("南京",15);
+setTimeout(function(){
+    map.setZoom(14);
+}, 2000);  //2秒后放大到14级
+map.enableScrollWheelZoom(true);
+var geolocation = new BMap.Geolocation();
+geolocation.getCurrentPosition(function(r){
+    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+        var mk = new BMap.Marker(r.point);
+        map.addOverlay(mk);
+        map.panTo(r.point);
+
+    }
+},{enableHighAccuracy: true})
+
+
+// 添加带有定位的导航控件
+var navigationControl = new BMap.NavigationControl({
+    // 靠左上角位置
+    anchor: BMAP_ANCHOR_TOP_LEFT,
+    // LARGE类型
+    type: BMAP_NAVIGATION_CONTROL_LARGE,
+    // 启用显示定位
+    enableGeolocation: true
+});
+map.addControl(navigationControl);
+// 添加定位控件
+var geolocationControl = new BMap.GeolocationControl();
+geolocationControl.addEventListener("locationSuccess", function(e){
+    // 定位成功事件
+    var address = '';
+    address += e.addressComponent.province;
+    address += e.addressComponent.city;
+    address += e.addressComponent.district;
+    address += e.addressComponent.street;
+    address += e.addressComponent.streetNumber;
+    alert("当前定位地址为：" + address);
+});
+geolocationControl.addEventListener("locationError",function(e){
+    // 定位失败事件
+    alert(e.message);
+});
+map.addControl(geolocationControl);
+
+var minValue = 0;
+var $divDiskSpace = $("#div-disk-space");
+var diskSpace = function(){
+    var knobContent = "";
+    $.ajax({
+        type:"post",
+        url:finance_admin_path + "/admin/getSpace.html",
+        success:function(result){
+            $.each(result,function (index,item) {
+                knobContent += '<div class="col-xs-2">'+item.spaceName+'<div class="progress" data-percent="'+item.usePercent+'%"> <div class="progress-bar" style="width:'+item.usePercent+'%;"></div> </div></div>';
+            });
+            $divDiskSpace.html(knobContent);
+        }
+    });
+}
+
+$(function () {
+
+    diskSpace();
+
+	$(".knob1").knob();
+
+    $(".knob2").knob();
+
+    $(".knob3").knob();
+
+	setInterval(function(){
+        minValue ++ ;
+        var minValue1 = minValue * 10 ;
+
+        if(minValue == 11)
+            minValue = 0;
+		if(minValue1 > 100)
+		    minValue1 = 0;
+
+        $(".knob1").val(minValue1).trigger('change');
+        $(".knob2").val(minValue1).trigger('change');
+        $(".knob3").val(minValue).trigger('change');
+
+
+        $(".progress-bar-inverse").attr("style","width:"+minValue1+"%");
+	},1000);// 注意函数名没有引号和括弧！
+
+    setInterval(diskSpace(),500000);
+
+
+});
+
+$(function(){
+    var data = [
+        {
+            name : '北京',
+            value:[-9,1,12,20,26,30,32,29,22,12,0,-6],
+            color:'#1f7e92',
+            line_width:3
+        }
+    ];
+    var chart = new iChart.LineBasic2D({
+        render : 'canvasDiv',
+        data: data,
+        title : '北京2012年平均温度情况',
+        width : 800,
+        height : 400,
+        coordinate:{height:'90%',background_color:'#f6f9fa'},
+        sub_option:{
+            hollow_inside:false,//设置一个点的亮色在外环的效果
+            point_size:16
+        },
+        labels:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+    });
+    chart.draw();
+});
+
+
+
+</script>

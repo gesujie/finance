@@ -1,0 +1,78 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			菜单
+		</span>
+		<input style="width:355px" type="text" name="name" class="required"/>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			级别
+		</span>
+		<label>
+			<input name="level" value="1" type="radio" checked   class="ace" onclick="checkRadio(this.value)"/>
+			<span class="lbl">一级</span>
+		</label>
+		<label>
+			<input name="level" value="2" type="radio" class="ace" onclick="checkRadio(this.value)"/>
+			<span class="lbl">二级</span>
+		</label>
+		<label>
+			<input name="level" value="3" type="radio" class="ace" onclick="checkRadio(this.value)"/>
+			<span class="lbl">三级</span>
+		</label>
+	</div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			父类菜单
+		</span>
+        <select class="form-control" id="parent-system-menu" name="pid" style="width:355px;height:30px;">
+			<option value='0' selected>一级菜单</option>
+		</select>
+	</div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			描述
+		</span>
+		<input style="width:355px" type="text" name="descibe" />
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			LOGO
+		</span>
+		<input style="width:355px" type="text" name="classIcon"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			根路径
+		</span>
+		<input style="width:355px" type="text" name="baseUrl" class="required url"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80" >
+			请求路径
+		</span>
+		<input style="width:355px" type="text" name="moduleUrl" />
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80" >
+			排序
+		</span>
+		<input style="width:355px" type="text" name="sort" class="required digits"/>
+	</div>
+	
+</form>

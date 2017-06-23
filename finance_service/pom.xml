@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.jibinfo</groupId>
+		<artifactId>finance</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>finance_service</artifactId>
+	<packaging>war</packaging>
+
+	<name>finance_service</name>
+	<url>http://maven.apache.org</url>
+
+	<!--变量信息配置 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<finance_lib.version>0.0.1-SNAPSHOT</finance_lib.version>
+		<finance_client.version>0.0.1-SNAPSHOT</finance_client.version>
+		
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.jibinfo</groupId>
+			<artifactId>finance_lib</artifactId>
+			<version>${finance_lib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jibinfo</groupId>
+			<artifactId>finance_client</artifactId>
+			<version>${finance_client.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.5.1.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alidayu</groupId>
+			<artifactId>taobao-sdk-java-auto</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://192.168.1.241:8080/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://192.168.1.241:8080/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<repositories>
+		<repository>
+			<id>releases</id>
+			<url>http://192.168.1.241:8080/nexus/content/repositories/releases</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
+	<build>
+		<finalName>finance_service</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>utf8</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

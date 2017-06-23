@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.car.CarLoanRateMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.car.CarLoanRate" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="PID" property="pid" jdbcType="BIGINT" />
+    <result column="PNAME" property="pname" jdbcType="VARCHAR" />
+    <result column="RATE" property="rate" jdbcType="VARCHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, CODE, PID, PNAME, RATE, CREATED_DATE, UPDATED_DATE, IS_DEL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.car.CarLoanRateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from car_loan_rate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from car_loan_rate
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from car_loan_rate
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.car.CarLoanRateExample" >
+    delete from car_loan_rate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.car.CarLoanRate" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into car_loan_rate (CODE, PID, PNAME, 
+      RATE, CREATED_DATE, UPDATED_DATE, 
+      IS_DEL)
+    values (#{code,jdbcType=VARCHAR}, #{pid,jdbcType=BIGINT}, #{pname,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.car.CarLoanRate" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into car_loan_rate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="pid != null" >
+        PID,
+      </if>
+      <if test="pname != null" >
+        PNAME,
+      </if>
+      <if test="rate != null" >
+        RATE,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.car.CarLoanRateExample" resultType="java.lang.Integer" >
+    select count(*) from car_loan_rate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update car_loan_rate
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pid != null" >
+        PID = #{record.pid,jdbcType=BIGINT},
+      </if>
+      <if test="record.pname != null" >
+        PNAME = #{record.pname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rate != null" >
+        RATE = #{record.rate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update car_loan_rate
+    set ID = #{record.id,jdbcType=BIGINT},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      PID = #{record.pid,jdbcType=BIGINT},
+      PNAME = #{record.pname,jdbcType=VARCHAR},
+      RATE = #{record.rate,jdbcType=VARCHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.car.CarLoanRate" >
+    update car_loan_rate
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null" >
+        PID = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="pname != null" >
+        PNAME = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        RATE = #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.car.CarLoanRate" >
+    update car_loan_rate
+    set CODE = #{code,jdbcType=VARCHAR},
+      PID = #{pid,jdbcType=BIGINT},
+      PNAME = #{pname,jdbcType=VARCHAR},
+      RATE = #{rate,jdbcType=VARCHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=CHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,118 @@
+#* 头部 内容*#
+#macro(frontend_header $params)
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		##360浏览器默认用的内核
+		<meta http-equiv="Cache-Control" content="no-transform" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="Keywords" content="$params.Keywords"/>
+		<meta name="Description" content="$params.Description"/>
+		
+		#parse("template/setEnv.vm")
+		
+		<link href="$static_path/jibinfoFinance/frontend/images/favicon.ico" mce_href="$static_path/jibinfoFinance/frontend/images/favicon.ico" rel="bookmark" type="image/x-icon" />
+		<link href="$static_path/jibinfoFinance/frontend/images/favicon.ico" mce_href="$static_path/jibinfoFinance/frontend/images/favicon.ico" rel="icon" type="image/x-icon" />
+		<link href="$static_path/jibinfoFinance/frontend/images/favicon.ico" mce_href="$static_path/jibinfoFinance/frontend/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		
+		<title>$params.title</title>
+		
+		#if ($!params.css)
+	        #foreach($css in $!params.css.split(","))
+	            <link rel='stylesheet' type='text/css' href='$static_path/$css' />
+	        #end
+		#end
+		
+		<!--[if lt IE 9]>
+			<link rel='stylesheet' type='text/css' href='$static_path/jibinfoFinance/frontend/css/finance-ie8.css' />
+		<![endif]-->
+	</head>
+	<body style="zoom: 1;">
+		<div class="scroll_to_top hidden">
+			<a class="to_top_icon" href="javascript:;">
+				<span class="glyphicon glyphicon-chevron-left cWhite"></span>
+			</a>
+			<a class="to_top_text cWhite" href="javascript:;">顶部</a>
+		</div>
+		<div class="wrap-container">
+			
+#end
+
+#* 尾部 内容*#
+#macro(frontend_footer $footerParams)
+	</div>
+	<div class="footer home">
+		<div class="container clearfix content-list">
+			<div class="left">
+				<img src="$static_path/jibinfoFinance/frontend/images/phone.png" />
+			</div>
+			<div class="left cWhite large-width">
+				<p class="F48 Mar_t_40 Mar_b_20">好车e贷APP</p>
+				<p class="F20">上汽集团互联网车贷平台</p>
+			</div>
+			<div class="left">
+				<a target="_blank" href="#" >
+					<img class="iphone" src="$static_path/jibinfoFinance/frontend/images/apple.png" />
+		        </a>
+		        <a href="#" class="android-link">
+					<img class="android" src="$static_path/jibinfoFinance/frontend/images/android.png">
+		        </a>
+			</div>
+			<div class="right">
+				<img class="weixin_code" src="$static_path/jibinfoFinance/frontend/images/weixin.png" />
+			</div>
+		</div>
+	</div>
+	<div class="friends Mar_t_10">
+		<div class="container">
+			<p class="F32 Mar_b_25 t-c">合作伙伴</p>
+			<p class="firend-links t-c">
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/first.png" /></a>
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/second.png" /></a>
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/third.jpg" /></a>
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/fourth.png" /></a>
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/fifth.png" /></a>
+			</p>
+			<p class="social-links Mar_t_40 t-c">
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/police.jpg" /></a>
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/footer/weibo.png" /></a>
+				<a href="#" class="footer-weixin">
+					<img src="$static_path/jibinfoFinance/frontend/images/footer/weixin.png" />
+				</a>
+				<span class="big-weixin hidden"><img src="$static_path/jibinfoFinance/frontend/images/footer/big_weixin.png" /></span>
+			</p>
+			<p class="customer-links">
+				<a href="">公司介绍</a>
+				<a href="">联系我们</a>
+				<a href="">常见问题</a>
+				<a href="">法律条款</a>
+				<a href="">服务热线 400-050-6666/400-055-6666</a>
+			</p>
+		</div>
+	</div>
+	#parse("template/statusTip.vm")
+	#parse("template/setEnvJs.vm")
+	
+	<script type="text/javascript" src='$static_path/common/seaJs/sea.js'></script>
+		
+	<script type="text/javascript">
+		seajs.config({
+			map: [],
+			alias: {
+				'jquery': '$static_path/common/jquery/jquery-1.7.2.min.js',
+				'general': '$static_path/jibinfoFinance/frontend/scripts/general.js'
+			},
+			charset: 'utf-8' // 字符编码
+		});
+		
+		seajs.use(['$static_path/jibinfoFinance/frontend/scripts/index.js','$static_path/jibinfoFinance/frontend/scripts/general.js'],function(main, general){
+			main.init();
+			general.init();
+		});
+	</script>
+	</body>
+</html>
+#end

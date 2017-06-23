@@ -1,0 +1,104 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="model-save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-100">车型名称</span>
+		<input style="width:355px" type="text" name="modelName" id="modelName" required/>
+	</div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">价格</span>
+        <input style="width:355px" type="text" name="modelPrice" id="modelPrice" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">年款</span>
+        <input style="width:355px" type="text" name="modelYear" id="modelYear" required/>
+    </div
+
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">排量</span>
+        <input style="width:355px" type="text" name="liter" id="liter" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">变速箱</span>
+        <input style="width:355px" type="text" name="gearType" id="gearType" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">排放标准</span>
+        <input style="width:355px" type="text" name="dischargeStandard" id="dischargeStandard" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">座位数</span>
+        <input  type="text"  class="input-mini" id="seatNumber" name="seatNumber"  required="true"/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">简称</span>
+        <input style="width:355px" type="text" name="shortName" id="shortName" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">最小上牌年份</span>
+        <input style="width:355px" type="text" name="minGreYear" id="minGreYear" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-100">最大上牌年份</span>
+        <input style="width:355px" type="text" name="maxGerYear" id="maxGerYear" required/>
+    </div
+    
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    <div class="input-group" id="uploader">
+        <span class="input-group-addon input-group-addon-100">图片</span>
+        <img id="modelImg" width="200px" height="100px" style="float: left"/>
+        <div style="float: left">
+            <input id="pictureUrl" type="hidden" name="pictureUrl"/>
+            <div id="filePicker">选择图片</div>
+            <a id="deleteImg" style="cursor: pointer;display: none;">删除</a>
+        </div>
+    </div>
+    
+</form>
+
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/upload.js"></script>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/valid.js"></script>
+
+<style >
+    .input-group
+    .help-block{
+        display: inline-block;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>

@@ -1,0 +1,45 @@
+<toolbox>
+	<xhtml>true</xhtml>
+
+	<tool>
+		<key>stringUtil</key>
+		<scope>application</scope>
+		<class>com.jibinfo.framework.utils.StringUtils</class>
+	</tool>
+		
+	<tool>
+	    <key>config</key>
+	    <scope>application</scope>
+	    <class>com.jibinfo.framework.support.utility.Configuration</class>
+	</tool>
+	
+	<tool>
+	    <key>cookie</key>
+	    <scope>application</scope>
+	    <class>com.jibinfo.framework.support.utility.CookieUtility</class>
+	</tool>
+	
+	<tool>
+		<key>actionContext</key>
+		<scope>application</scope>
+		<class>com.jibinfo.framework.support.utility.ActionContext</class>
+	</tool>
+	
+	<tool>
+		<key>authorizationUtils</key>
+		<scope>application</scope>
+		<class>com.jibinfo.framework.security.AuthorizationUtils</class>
+	</tool>
+	
+	<tool>
+		<key>addrChinaUtil</key>
+		<scope>application</scope>
+		<class>com.jibinfo.www.AddrChinaUtil</class>
+	</tool>
+	
+	<tool>
+		<key>systemMobilePrefixUtil</key>
+		<scope>application</scope>
+		<class>com.jibinfo.www.SystemMobilePrefixUtil</class>
+	</tool>
+</toolbox>

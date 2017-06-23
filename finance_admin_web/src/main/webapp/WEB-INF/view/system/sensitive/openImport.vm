@@ -1,0 +1,7 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-import-form" role="form" method="POST" id="confirmDg" enctype="multipart/form-data" action="http://admin.finance.cn/admin/system/sensitive/sensitiveLeading.html">
+	<div class="input-group">
+		<input type="file" name="file" id="confirmExcel" style="width: 200px;"/></span>
+	</div>
+</form>

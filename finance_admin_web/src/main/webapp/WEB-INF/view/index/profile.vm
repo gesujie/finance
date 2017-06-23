@@ -1,0 +1,129 @@
+##设置css自定义样式
+#setCss()
+##设置导航栏
+#breadcrumbs("个人信息")
+<div class="page-content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                <div id="user-profile-1" class="user-profile row">
+                    <div class="col-xs-12 col-sm-3 center">
+                        <div>
+                            <span class="profile-picture">
+                                <img id="avatar" class="editable img-responsive" alt="Avatar" src="$!images_path$!profile.userIcon" />
+                            </span>
+                            <div class="space-4"></div>
+
+
+
+                            <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+                                <div class="inline position-relative">
+                                    <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-circle light-green middle"></i>
+                                        &nbsp;
+                                        <span class="white">$!profile.userName</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-6"></div>
+
+                        <div class="profile-contact-info">
+                            <div class="profile-contact-links align-left">
+                                <a class="btn btn-link" href="mailto:$!profile.email">
+                                    <i class="icon-envelope bigger-120 pink"></i>
+                                    $!profile.email
+                                </a>
+                            </div>
+
+                            <div class="space-6"></div>
+
+                        </div>
+
+                        <div class="hr hr12 dotted"></div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9">
+
+
+                        <div class="space-12"></div>
+
+                        <div class="profile-user-info profile-user-info-striped">
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 用户名 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="username">$!profile.userName</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 姓名 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="username">$!profile.name</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 昵称 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="age">$!profile.nickname</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 性别 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="signup">$!profile.sex</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 最近登陆时间 </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="login-date">$!profile.lastLoginDate</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> 最近登陆IP </div>
+
+                                <div class="profile-info-value">
+                                    <span class="editable" id="login-ip">$!profile.lastLoginIp</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="space-20"></div>
+
+                        <div class="space-6"></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+#setJs()
+<script>
+    $(document).on('ready', function() {    
+        $("#avatar").click(function () {
+            console.log(1);
+        });
+    });
+
+
+
+</script>

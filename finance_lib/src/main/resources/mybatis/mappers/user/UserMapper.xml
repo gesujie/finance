@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.user.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.user.User" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="WX_OPEN_ID" property="wxOpenId" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+    <result column="MOBILE_VALIDATED" property="mobileValidated" jdbcType="CHAR" />
+    <result column="EMAIL_VALIDATED" property="emailValidated" jdbcType="CHAR" />
+    <result column="WX_IS_FOLLOWED" property="wxIsFollowed" jdbcType="CHAR" />
+    <result column="AVATAR" property="avatar" jdbcType="VARCHAR" />
+    <result column="QRSCENE_ID" property="qrsceneId" jdbcType="VARCHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+    <result column="IS_DEL" property="isDel" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, MOBILE, WX_OPEN_ID, EMAIL, USER_NAME, PASSWORD, CARD_NO, STATUS, NICK_NAME, MOBILE_VALIDATED, 
+    EMAIL_VALIDATED, WX_IS_FOLLOWED, AVATAR, QRSCENE_ID, CREATED_DATE, UPDATED_DATE, 
+    IS_DEL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.user.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.user.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.user.User" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into user (MOBILE, WX_OPEN_ID, EMAIL, 
+      USER_NAME, PASSWORD, CARD_NO, 
+      STATUS, NICK_NAME, MOBILE_VALIDATED, 
+      EMAIL_VALIDATED, WX_IS_FOLLOWED, AVATAR, 
+      QRSCENE_ID, CREATED_DATE, UPDATED_DATE, 
+      IS_DEL)
+    values (#{mobile,jdbcType=VARCHAR}, #{wxOpenId,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{nickName,jdbcType=VARCHAR}, #{mobileValidated,jdbcType=CHAR}, 
+      #{emailValidated,jdbcType=CHAR}, #{wxIsFollowed,jdbcType=CHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{qrsceneId,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.user.User" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME,
+      </if>
+      <if test="mobileValidated != null" >
+        MOBILE_VALIDATED,
+      </if>
+      <if test="emailValidated != null" >
+        EMAIL_VALIDATED,
+      </if>
+      <if test="wxIsFollowed != null" >
+        WX_IS_FOLLOWED,
+      </if>
+      <if test="avatar != null" >
+        AVATAR,
+      </if>
+      <if test="qrsceneId != null" >
+        QRSCENE_ID,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenId != null" >
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileValidated != null" >
+        #{mobileValidated,jdbcType=CHAR},
+      </if>
+      <if test="emailValidated != null" >
+        #{emailValidated,jdbcType=CHAR},
+      </if>
+      <if test="wxIsFollowed != null" >
+        #{wxIsFollowed,jdbcType=CHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="qrsceneId != null" >
+        #{qrsceneId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.user.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.mobile != null" >
+        MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wxOpenId != null" >
+        WX_OPEN_ID = #{record.wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardNo != null" >
+        CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.nickName != null" >
+        NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobileValidated != null" >
+        MOBILE_VALIDATED = #{record.mobileValidated,jdbcType=CHAR},
+      </if>
+      <if test="record.emailValidated != null" >
+        EMAIL_VALIDATED = #{record.emailValidated,jdbcType=CHAR},
+      </if>
+      <if test="record.wxIsFollowed != null" >
+        WX_IS_FOLLOWED = #{record.wxIsFollowed,jdbcType=CHAR},
+      </if>
+      <if test="record.avatar != null" >
+        AVATAR = #{record.avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qrsceneId != null" >
+        QRSCENE_ID = #{record.qrsceneId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set ID = #{record.id,jdbcType=BIGINT},
+      MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      WX_OPEN_ID = #{record.wxOpenId,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      CARD_NO = #{record.cardNo,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=CHAR},
+      NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      MOBILE_VALIDATED = #{record.mobileValidated,jdbcType=CHAR},
+      EMAIL_VALIDATED = #{record.emailValidated,jdbcType=CHAR},
+      WX_IS_FOLLOWED = #{record.wxIsFollowed,jdbcType=CHAR},
+      AVATAR = #{record.avatar,jdbcType=VARCHAR},
+      QRSCENE_ID = #{record.qrsceneId,jdbcType=VARCHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      IS_DEL = #{record.isDel,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.user.User" >
+    update user
+    <set >
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileValidated != null" >
+        MOBILE_VALIDATED = #{mobileValidated,jdbcType=CHAR},
+      </if>
+      <if test="emailValidated != null" >
+        EMAIL_VALIDATED = #{emailValidated,jdbcType=CHAR},
+      </if>
+      <if test="wxIsFollowed != null" >
+        WX_IS_FOLLOWED = #{wxIsFollowed,jdbcType=CHAR},
+      </if>
+      <if test="avatar != null" >
+        AVATAR = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="qrsceneId != null" >
+        QRSCENE_ID = #{qrsceneId,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.user.User" >
+    update user
+    set MOBILE = #{mobile,jdbcType=VARCHAR},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      MOBILE_VALIDATED = #{mobileValidated,jdbcType=CHAR},
+      EMAIL_VALIDATED = #{emailValidated,jdbcType=CHAR},
+      WX_IS_FOLLOWED = #{wxIsFollowed,jdbcType=CHAR},
+      AVATAR = #{avatar,jdbcType=VARCHAR},
+      QRSCENE_ID = #{qrsceneId,jdbcType=VARCHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      IS_DEL = #{isDel,jdbcType=CHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

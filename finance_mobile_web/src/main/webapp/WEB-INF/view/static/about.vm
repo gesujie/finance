@@ -1,0 +1,21 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/laws.css,jibinfoFinance/mobile/css/mat_plugins.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">关于我们</h2>
+        </header>
+    </div>    
+	<div class="laws_policy_content">
+    	<p class="paragraph">
+    		<b class="title">公司介绍</b>
+    	</p>
+    	<p>
+    		XXXXXXXXXXXXXXXXX
+    	</p>
+	</div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/loanApply.js"})
+#frontend_footer($footerParams)

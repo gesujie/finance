@@ -1,0 +1,72 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/account_manage.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">账号管理</h2>
+        </header>
+    </div>    
+	<div class="list-block calc-content content">
+        <ul>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">真实姓名</div>
+                          <div class="item-input">
+							  <input type="text" id="realName" placeholder="" readonly>
+                  		  </div>
+						  <span class="icon icon-right selectRealName"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">修改手机账号</div>
+                          <div class="item-input">
+							  <input type="text" id="mobile" placeholder="" readonly>
+                  		  </div>
+						  <span class="icon icon-right selectMobile"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">身份证号</div>
+                          <div class="item-input">
+							  <input type="text" id="idCard" placeholder="" readonly>
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">设置/修改密码</div>
+						  <span class="icon icon-right selectUpdatePassword"></span>
+					  </div>
+				 </div>
+        	</li>
+		</ul>
+       <div class="out-button-div"><button type="button" disabled="true" class="out-button">退出</button></div>
+	</div>
+    <div class="silder-up mat-slidePannel" style="display: none;">
+		<div class="header-base-color">
+            <header class="bar bar-nav header-bg">
+                <a href="javascript:;" class="back-to-prev-btn" id="closeActDia"><span class="icon icon-left"></span></a>
+                <h2 class="text-center bar-title">修改姓名</h2>
+            </header>
+        </div>
+        <div class="namePannel">
+			<p>请确认使用真实姓名申请贷款</p>
+			<div class="mdfNameC">
+    			<input type="text" value="" disabled="">
+    		</div>
+		</div>
+		<div class="confirm-button-div"><button type="button" disabled="true" class="confirm-button">确认</button></div>
+	</div>
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/accountManage.js"})
+#frontend_footer($footerParams)

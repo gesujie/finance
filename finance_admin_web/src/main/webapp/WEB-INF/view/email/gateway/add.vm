@@ -1,0 +1,48 @@
+## 添加页面
+
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			服务器
+		</span>
+		<input style="width:355px" type="text" name="emailHost" class="required"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			发送者
+		</span>
+        <input style="width:355px" type="text" name="sender"  class="required email"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			登陆账号
+		</span>
+        <input style="width:355px" type="text" name="emailUserName" class="required email"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			登陆密码
+		</span>
+        <input style="width:355px" type="text" name="emailPassword" class="required"/>
+    </div>
+
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			开关
+		</span>
+        <select class="form-control"  name="onOff" style="width:355px;height:30px;">
+			<option value='0' selected>启用</option>
+            <option value='1'>禁用</option>
+		</select>
+	</div>
+
+
+</form>

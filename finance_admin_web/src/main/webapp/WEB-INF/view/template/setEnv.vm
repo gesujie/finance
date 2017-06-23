@@ -1,0 +1,3 @@
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+#set( $finance_admin_path = ${config.getProperty("manager_path")})

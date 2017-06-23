@@ -1,0 +1,40 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/zero_rate.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">零利率</h2>
+        </header>
+    </div>    
+	<div class="zero_rate_content">
+		<div class="fixed-tab">
+    		<a href="$mobile_finance_path/account/carActivity.html" class="tab-link button orderAll active">零利率直通</a>
+    		<a href="$mobile_finance_path/account/activity.html" class="tab-link button complete">所有品牌</a>
+			<div class="clear"></div>
+    	</div> 
+        <div class="tabs zero_rate">
+    		<ul class="list-unstyled list-container">    
+				<li class="item-content item-example" style="display: none">
+					<div class="top">
+					  	<img class="carImg" src=""/>
+    				  	<p class="carName"></p>
+                        <div class="J_temp">
+                            <div class="J_temp_example hidden J_temp_current"><p class="J_temp_p"></p></div>
+							
+						</div>
+    				 </div>
+                     <div class="activities">
+                        <div class="activities_example activities_current hidden">
+							<p class="acticityName"></p>
+						</div>
+					  	
+					 </div>
+                 </li>
+			</ul>
+    	</div>
+	</div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/zeroRate.js"})
+#frontend_footer($footerParams)

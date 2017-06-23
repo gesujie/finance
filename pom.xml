@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jibinfo</groupId>
+	<artifactId>finance</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>jibinfo-finance</description>
+
+	<modules>
+		<module>finance_lib</module>
+		<module>finance_client</module>
+		<module>finance_service</module>
+		<module>finance_web</module>
+		<module>finance_admin_web</module>
+		<module>finance_mobile_web</module>
+	</modules>
+
+	<!--变量信息配置 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<framework.version>2.0.0</framework.version>
+	</properties>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.jibinfo</groupId>
+			<artifactId>framework</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+        
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://192.168.1.241:8080/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://192.168.1.241:8080/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
+</project>

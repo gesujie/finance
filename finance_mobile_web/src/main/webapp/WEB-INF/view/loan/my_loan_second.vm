@@ -1,0 +1,82 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/my-loan.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn step"><span class="icon icon-left"></span></a>
+			<a href="javascript:;" class="back-to-prev-btn pre-step" style="display: none;"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">我的贷款</h2>
+        </header>
+    </div>    
+	<div class="loan-content">
+        <div class="loan-cricle hidden" style="display: block;">
+    		<div class="loan-practice">
+    			<div id="ccode-wsy-hx" class="loan-prac-circle loan-prac-circle-first">1</div>
+    			<div class="loan-prac-line"></div>
+    			<div id="ccode-spz-hx" class="loan-prac-circle loan-prac-circle-second loan-prac-circle-selected">2</div>
+    			<div class="loan-prac-line"></div>
+    			<div id="ccode-sph-hx" class="loan-prac-circle loan-prac-circle-third">3</div>
+    		</div>
+    		<div class="loan-practiceText">
+    			<p class="loan-practiceText-dec first">在线贷款申请</p>
+    			<p class="loan-practiceText-dec second">贷款审批</p>
+    			<p class="loan-practiceText-dec loan-practiceText-dec-last">4s店签约放款</p>
+                <div class="clear"></div>
+    		</div>
+    	</div>
+		<div class="code-s">
+    		<p class="cont-dec-userInfo">
+    			<span class="icon icon-emoji contractDatail"></span>
+    			欢迎使用好车e贷，<span class="cont-dec-name">XXX(15951******)</span>，你提交的在线车贷申请已于
+    			<span class="cont-dec-codeDate">2016-07-29 17:17</span>审批通过，有效期至
+    			<span class="cont-dec-codeDate">2016-09-29</span>。请于
+    			<span class="cont-dec-dealer" onclick="gotohref('http://www.haocheedai.com/appointmentIndex.html');">合作经销商</span>
+    			办理贷款购车签约。如有疑问请加客服体验QQ群418508351。
+    		</p>
+        </div>
+		<div class="apply-credits">
+			<div class="apply-subCredits">
+				<div class="subCredits-cont">
+					<div class="subCredit-hxcode">
+						<div class="subCredit-code-left">
+							<p class="code-info-dec">可贷额度</p>
+							<p class="code-info-money">￥<span>7</span>万</p>
+						</div>
+						<div class="subCredit-code-right">
+							<p class="code-info-credit"><span>30</span>%</p>
+							<p class="code-info-credit-dec">最低首付</p>
+							<p class="code-info-date">有效期至<span>2016-09-29</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="loan-code-content">
+    		<div class="loan-code-title">
+    			<p>购车贷款放款码</p>
+    			<p class="loan-code-hxcode">hxceph8ntsj5w2</p>
+    		</div>
+    		<div class="loan-code-city">
+    			<p class="content-city-dec">购车城市：<span>不限</span></p>
+    			<p class="content-city-dec">品牌车系：<span>上汽品牌（上汽大众/斯柯达/荣威/MG）</span></p>
+    		</div>
+    		<div class="loan-code-cont">
+    			<p class="rule-description">规则说明</p>
+				<p class="subcont-dec">1.  在经销商处确定购车意向后，将放款码给予经销商完成贷款签约（放款码为一次性使用，请与经销商确认贷款明细后出示）。</p>
+				<p class="subcont-dec">2.  最低首付款比例仅为审批结果，如需参加厂家促销活动，以活动规定的最低首付比例为准。</p>
+				<p class="subcont-dec">3.  品牌支持上汽大众/斯柯达/荣威/MG。</p>
+    		</div>
+    		<p class="dec-content-tip">在线填写个人贷款明细，放款快人一步</p>
+    	</div>
+		
+		<div class="loan-code-bottom">
+        	<p>关注好车e贷官方微信，试试了解贷款审批放款进度。</p>
+        	<img alt="" src="$static_path/jibinfoFinance/mobile/images/gzwi.jpg">
+        </div>
+		
+	</div>
+    
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/member-center.js"})
+#frontend_footer($footerParams)

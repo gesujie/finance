@@ -1,0 +1,191 @@
+#set($header_params={'title':"管理后台首页"})
+#frontend_header($header_params)
+#setCss("")
+<body style="background-color: transparent;margin:0px;padding:0px; height:100%;" onload="loadUserInfo($!actionContext.getAuthorization().id)">
+	<div class="navbar navbar-default" id="navbar">
+		<div class="navbar-container" id="navbar-container">
+			<div class="navbar-header pull-left">
+				<a href="#" class="navbar-brand">
+					<small>
+						<i class="icon-leaf"></i>
+						Finance后台管理系统
+					</small>
+				</a><!-- /.brand -->
+			</div><!-- /.navbar-header -->
+
+			<div class="navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+					
+					##============================================================
+					##站内信提示开始
+					##============================================================
+					<li class="green">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-envelope icon-animated-vertical"></i>
+							<span class="badge badge-success">5</span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-envelope-alt"></i>
+								5条消息
+							</li>
+							<li>
+								<a href="#">
+									<span class="msg-body">
+										<span class="msg-title">
+											<span class="blue">Bob:</span>
+											到底是不是英文 ...
+										</span>
+
+										<span class="msg-time">
+											<i class="icon-time"></i>
+											<span>下午3:15</span>
+										</span>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="inbox.html">
+									查看所有消息
+									<i class="icon-arrow-right"></i>
+								</a>
+							</li>
+						</ul>
+					</li>
+					##============================================================
+					##站内信提示结束
+					##============================================================
+					
+					
+					
+					##============================================================
+					## 个人登录信息展示开始
+					##============================================================
+					<li class="light-blue">
+						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+							<img class="nav-user-photo" />
+							<span class="user-info">
+								<small>欢迎光临</small>
+								$!actionContext.getAuthorization().username
+							</span>
+							<i class="icon-caret-down"></i>
+						</a>
+						<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li>
+								<a href="#" onclick="showProfile();">
+									<i class="icon-user"></i>
+									个人资料
+								</a>
+							</li>
+                            <li>
+                                <a href="#" onclick="resetPwd();">
+                                    <i class="icon-edit"></i>
+                                    修改密码
+                                </a>
+                            </li>
+							<li class="divider"></li>
+							<li>
+								<a href="#" class="logout">
+									<i class="icon-off"></i>
+									退出
+								</a>
+							</li>
+						</ul>
+					</li>
+					##============================================================
+					##个人登录信息展示结束
+					##============================================================
+				</ul><!-- /.ace-nav -->
+			</div><!-- /.navbar-header -->
+		</div><!-- /.container -->
+	</div>
+
+	<div class="main-container" id="main-container" height="100%">
+		<div class="main-container-inner" height="100%">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+			<div class="sidebar" id="sidebar">
+				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+						<button class="btn btn-success">
+							<i class="icon-signal"></i>
+						</button>
+						<button class="btn btn-info">
+							<i class="icon-pencil"></i>
+						</button>
+						<button class="btn btn-warning">
+							<i class="icon-group"></i>
+						</button>
+
+						<button class="btn btn-danger">
+							<i class="icon-cogs"></i>
+						</button>
+					</div>
+				</div><!-- #sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+					##==============================================
+					## 菜单信息加载开始
+					##==============================================
+					
+					#parse("./index/menu.vm")
+					#menu_list($!menuList)		
+					##==============================================
+					## 菜单信息加载结束
+					##==============================================
+					
+				</ul><!-- /.nav-list -->
+
+				<div class="sidebar-collapse" id="sidebar-collapse">
+					<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+				</div>
+			</div>
+			##==============================================
+			## 内容区域加载的ifarame 开始
+			##==============================================
+			<div class="main-content" height="100%">
+				<iframe src="$!finance_admin_path/admin/console.html" style="width:100%;min-height:830px"  frameborder="0" scrolling="no" id="iframepage" ></iframe>
+			</div>
+
+			##==============================================
+			## 内容区域加载的ifarame 结束
+			##==============================================
+			
+
+			<div class="ace-settings-container" id="ace-settings-container">
+				<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+					<i class="icon-cog bigger-150"></i>
+				</div>
+				<div class="ace-settings-box" id="ace-settings-box">
+					<div>
+						<div class="pull-left">
+							<select id="skin-colorpicker" class="hide">
+								<option data-skin="default" value="#438EB9">#438EB9</option>
+								<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+								<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+								<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+							</select>
+						</div>
+						<span>&nbsp; 选择皮肤</span>
+					</div>
+				</div>
+			</div><!-- /#ace-settings-container -->
+		</div><!-- /.main-container-inner -->
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+	</div><!-- /.main-container -->
+
+</body>
+#frontend_footer()
+#setJs("/jibinfoFinance/manager/js/finance/index/index.js")
+<script>  
+//注意：下面的代码是放在iframe引用的子页面中调用
+$(window.parent.document).find("#iframepage").load(function () {
+    var main = $(window.parent.document).find("#iframepage");
+    var thisheight = $(document).height() - 50;
+    main.height(thisheight);
+});
+</script>  

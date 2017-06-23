@@ -1,0 +1,93 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/login.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+    ##主内容开始
+    <div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">登录<a href="javascript:;" class="right-side-link register-apply">注册申请</a></h2>
+        </header>
+    </div>
+	<div class="content">
+		<div class="buttons-tab fixed-tab" data-offset="44">
+			<a href="#tab1" class="tab-link button captcha active"><img src="$static_path/jibinfoFinance/mobile/images/login_mobile_icon_selected.png"><span>验证码登录</span></a>
+            <a href="#tab2" class="tab-link button noraml"><img src="$static_path/jibinfoFinance/mobile/images/lock.png"><span>密码登录</span></a>
+		</div>
+		<div class="tabs my-login">
+			<div id="tab1" class="tab captcha-login list-block active">
+                <ul>
+                    <li>
+                        <div class="item-content">
+							<div class="item-media"><img src="$static_path/jibinfoFinance/mobile/images/user.png"></div>
+							<div class="item-inner">
+								<div class="item-input">
+									<input type="text" id="mobile" placeholder="请输入手机号">
+                            	</div>
+							</div>
+                        </div>
+                    </li>
+					 <li>
+                        <div class="item-content">
+							<div class="item-media"><img src="$static_path/jibinfoFinance/mobile/images/lock.png"></div>
+							<div class="item-inner">
+								<div class="item-input user-captcha">
+									<input type="text" id="validcode" placeholder="请输入图形验证码">
+									<img class="user-captcha-image" id="codeimages">
+                            	</div>
+							</div>
+                        </div>
+                    </li>
+					 <li>
+                        <div class="item-content">
+							<div class="item-media"><img src="$static_path/jibinfoFinance/mobile/images/lock.png"></div>
+							<div class="item-inner">
+								<div class="item-input get-captcha">
+									<input type="text" id="captcha" placeholder="请输入验证码">
+									<p class="code-link right" id="get_payidentify" href="javascript:void(0);">
+                			        	 <span class="medium" id="buttonClickCaptcha">发送验证码</span>
+            			            </p>
+                            	</div>
+							</div>
+                        </div>
+                    </li>
+				</ul>
+				<p class="" style="display:none;" id="register_prompt">请输入正确手机号码</p>
+                <div class="login-button"><button type="button" disabled="true" class="sso-text sso-button">登录</button></div>
+				
+                <div class="change-pwd-mobile">
+                    <div class="change-pwd"><a>设置登录密码</a></div>
+                    <div class="change-mobile"><a>手机账号变更</a></div>
+					<div class="clear"></div>
+				</div>
+            </div>
+			<div id="tab2" class="tab normal-login list-block ">
+				<ul>
+                    <li>
+                        <div class="item-content">
+							<div class="item-media"><img src="$static_path/jibinfoFinance/mobile/images/user.png"></div>
+							<div class="item-inner">
+								<div class="item-input">
+									<input type="text" placeholder="请输入手机号">
+                            	</div>
+							</div>
+                        </div>
+                    </li>
+					 <li>
+                        <div class="item-content">
+							<div class="item-media"><img src="$static_path/jibinfoFinance/mobile/images/lock.png"></div>
+							<div class="item-inner">
+								<div class="item-input">
+									<input type="text" placeholder="请输入密码">
+                            	</div>
+							</div>
+                        </div>
+                    </li>
+				</ul>
+                <div class="login-button"><button type="button" class="sso-text sso-button">登录</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/login.js"})
+#frontend_footer($footerParams)

@@ -1,0 +1,5 @@
+<script type="text/javascript">
+	var images_path = "$images_path";
+	var static_path  = "$static_path";
+	var finance_admin_path="${finance_admin_path}";
+</script>

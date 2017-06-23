@@ -1,0 +1,19 @@
+﻿#set($header_params={"title":"yysports","css":"carCommerce/www/css/error.css","Keywords":"好车E贷-金融车-页面出错","Description":"好车E贷-金融车-页面出错","title":"好车E贷-金融车-页面出错"})
+#frontend_header($header_params)
+
+##主内容开始
+<section class="submit_order Mar_t_b_100">
+	<div class="container">
+		<div class="col-md-12 text-center">
+			<img src="$static_path/carCommerce/common/images/computer_error.png" class="error_four" />
+		</div>
+	</div>
+	
+	<p class="clearfix text-center Mar_t_40 col-md-12 Mar_b_40 Pad_b_40">
+		<span class="F24">服务器忙，请稍后再试，或者手动刷新</span>
+	</p>
+</section>
+##主内容结束
+
+#set($header_params={})
+#frontend_footer($header_params)

@@ -1,0 +1,49 @@
+## 添加页面
+
+<form class="save-update-form" role="form" method="POST">
+    <input type="hidden" name="id" value="$!model.id">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			编码
+		</span>
+		<input style="width:355px" type="text" name="code" value="$!model.code"  readonly/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			名称
+		</span>
+        <input style="width:355px" type="text" name="name"  value="$!model.name"  class="required"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			内容
+		</span>
+        <textarea class="form-control" name="content"  rows="4" cols="45" placeholder="模板参数示例:你好${name},这是一个邮件模板示例.注:参数注入使用 ${参数名}">$!model.content</textarea>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			备注
+		</span>
+        <input style="width:355px" type="text" name="remark" value="$!model.remark" />
+    </div>
+
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			类型
+		</span>
+        <select class="form-control"  name="type" style="width:355px;height:30px;">
+			<option value='0' #if($!model.type == 0) selected #end>文本类型内容</option>
+            <option value='1' #if($!model.type == 1) selected #end>HTML类型内容(暂不支持)</option>
+		</select>
+	</div>
+
+
+</form>

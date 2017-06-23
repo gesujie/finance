@@ -1,0 +1,41 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+	<input type="hidden" name="id" value="$!model.id"/>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			任务名
+		</span>
+		<input style="width:355px" type="text" name="name"  value="$!model.name" required="true"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			包路径
+		</span>
+        <input style="width:355px" type="text" name="fullClassName" value="$!model.fullClassName"  required="true" />
+    </div>
+
+    <div class="space-4"></div>
+
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			CRON
+		</span>
+        <input style="width:355px" type="text" name="cron" value="$!model.cron" required="true"/>
+    </div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			所属模块
+		</span>
+		<select name="module" required="true">
+			<option value="SYSTEM" #if($!model.module == 'SYSTEM') selected #end>SYSTEM</option>
+            <option value="USER"  #if($!model.module == 'USER') selected #end>USER</option>
+            <option value="WEBSITE"  #if($!model.module == 'WEBSITE') selected #end>WEBSITE</option>
+            <option value="QUESTION"  #if($!model.module == 'QUESTION') selected #end>QUESTION</option>
+            <option value="INTERFACE"  #if($!model.module == 'INTERFACE') selected #end>INTERFACE</option>
+		</select>
+	</div>
+</form>

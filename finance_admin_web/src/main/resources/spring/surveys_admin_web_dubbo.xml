@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="surverysDataService" interface="com.jibinfo.finance.service.surveys.SurverysDataService" check="false" timeout="20000"/>
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="surveysMaterialsService" interface="com.jibinfo.finance.service.surveys.SurveysMaterialsService" check="false" timeout="20000"/>
+		
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="surveysQuestionsService" interface="com.jibinfo.finance.service.surveys.SurveysQuestionsService" check="false" timeout="20000"/>
+
+</beans>

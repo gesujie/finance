@@ -1,0 +1,92 @@
+#setCss()##设置自定义css
+#breadcrumbs("系统管理,资源配置")##设置导航栏
+<div style="float: left;width: 20%;height: 100%;background-color: #F9F9F9">
+    <div class="space-4"></div>
+    <div class="widget-body">
+        <div class="widget-main padding-8">
+            <div id="container"></div>
+        </div>
+    </div>
+</div>
+<div class="miain-div-context" style="float: left;width: 80%">
+    <div class="search-widget-box">
+        <div class="form-inline" role="form">
+            <table class="search-table">
+                <input type="hidden" name="menuId" id="menuId"/>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                    		<span class="input-group-addon">
+                    			编码
+                    		</span>
+                            <input type="text" name="value" id="value"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                    		<span class="input-group-addon">
+                    			名称
+                    		</span>
+                            <input type="text" name="name" id="name"/>
+                        </div>
+                    </td>
+                    <td>
+                        <button id="serarch" type="button" class="btn btn-success btn-search btn-sm">查询</button>
+                        <button id="reset" type="button" class="btn btn-grey btn-reset btn-sm">重置</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="toolbar">
+        <div class="btn-group lighter">
+            <button class="btn btn-sm disabled btn-danger">操作列表</button>&nbsp;
+            <button type="button" class="btn btn-info btn-sm btn-save">
+                <i class="icon-save align-top bigger-110" ></i>添加
+            </button>
+            <button type="button" class="btn btn-info btn-sm btn-edit">
+                <i class="icon-edit align-top bigger-110"></i>修改
+            </button>
+            <button type="button" class="btn btn-info btn-sm btn-delete">
+                <i class="icon-trash align-top  bigger-110"></i>删除
+            </button>
+        </div>
+    </div>
+    <table id="tb-datagrid" data-toggle="table" class="datagrid-table" data-url="$!finance_admin_path/admin/system/resource/getData.html"
+          data-height="740"##  定义表格的高度。
+          data-method="get"##   此处必须是GET，服务器数据的请求方式 'get' or 'post'
+          data-side-pagination="server"##服务器分页
+          data-pagination="true"##显示分页
+          data-page-size="20"##分页条数
+          data-striped="true"## 设置为 true 会有隔行变色效果
+          data-id-field="id"##  指定主键列
+          data-click-to-select="true" ##单击选中checkbox
+          data-query-params="queryParams"##请求服务器数据时参数
+          data-toolbar="#toolbar"##
+          >
+        <thead>
+        <tr >
+            <th data-field="state" data-checkbox="true"></th>
+            <th data-field="index" data-formatter="indexFormatter" data-width="10px">序号</th>
+            <th data-field="value">编码</th>
+            <th data-field="name">名称</th>
+            <th data-field="createdDate" data-width="130px" data-formatter="daterFormatter">添加时间</th>
+            <th data-field="updatedDate" data-width="130px" data-formatter="daterFormatter">更新时间</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<style >
+    .widget-body{
+     overflow:hidden;
+    }
+    
+    .widget-main{
+        height:860px;
+        max-height:860px;
+        overflow-y:auto;
+    }
+</style>
+
+#setJs("/jibinfoFinance/manager/js/finance/system/resource.js")

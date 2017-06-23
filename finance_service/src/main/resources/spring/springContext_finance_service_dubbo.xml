@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+
+	<dubbo:application name="finance_service" />
+	<dubbo:registry address="${zookeeper_dubbo}" />
+	<dubbo:protocol name="dubbo" port="${zookeeper_finance}" />
+	<dubbo:annotation package="com.jibinfo" />
+
+	<!-- system模块的serivce -->
+	<import resource="./system_service_dubbo.xml" />
+
+	<!-- surveys模块的serivce -->
+	<import resource="./surveys_service_dubbo.xml" />
+
+	<!-- quartz模块的serivce -->
+	<import resource="./quartz_service_dubbo.xml" />
+
+	<!-- car模块的service -->
+	<import resource="./car_service_dubbo.xml" />
+
+	<!-- user模块的service -->
+	<import resource="./user_service_dubbo.xml" />
+
+	<!-- redis的service -->
+	<import resource="./redis_service_dubbo.xml" />
+
+	<!-- email的service -->
+	<import resource="./email_service_dubbo.xml" />
+
+	<!-- sms的service -->
+	<import resource="./sms_service_dubbo.xml" />
+	
+	<!-- rule(规则引擎)的service -->
+    <import resource="./rule_service_dubbo.xml" />
+</beans>

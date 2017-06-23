@@ -1,0 +1,33 @@
+package com.sample
+ 
+import com.jibinfo.finance.entity.rule.RuleSignInPoint;
+ 
+rule "DaySignIn"	//每日签到积分发放
+	salience 10 	//优先级 数值越大越先执行
+    when
+        signIn : RuleSignInPoint( dayReward == false );
+    then
+    	signIn.setRewardPoint( signIn.getRewardPoint().add(signIn.getDayPoint()) );		//+每日签到积分
+    	signIn.setDayReward( true );
+        update( signIn );
+end
+
+rule "ContSignIn"	//连续签到7天积分发放
+	salience 9
+    when
+        signIn : RuleSignInPoint( contReward == false && continueDays == 7 );
+    then
+    	signIn.setRewardPoint( signIn.getRewardPoint().add(signIn.getContPoint()) );	//+连续签到积分
+    	signIn.setContReward( true );	//发放标志
+        update( signIn );
+end
+
+rule "CumuSignIn"	//每月累计签到25天积分发放
+	salience 8
+    when
+        signIn : RuleSignInPoint( cumuReward == false && cumulateDays == 25 );
+    then
+    	signIn.setRewardPoint( signIn.getRewardPoint().add(signIn.getCumuPoint()) );	//+累计签到积分
+    	signIn.setCumuReward( true );	//发放标志
+        update( signIn );
+end

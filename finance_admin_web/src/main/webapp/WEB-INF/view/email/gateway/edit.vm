@@ -1,0 +1,49 @@
+## 添加页面
+
+<form class="save-update-form" role="form" method="POST">
+	<input type="hidden" name="id" value="$!model.id">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			服务器
+		</span>
+		<input style="width:355px" type="text" name="emailHost" value="$!model.emailHost" class="required"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			发送者
+		</span>
+        <input style="width:355px" type="text" name="sender"  value="$!model.sender" class="required email"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			登陆账号
+		</span>
+        <input style="width:355px" type="text" name="emailUserName" value="$!model.emailUserName"  class="required email"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			登陆密码
+		</span>
+        <input style="width:355px" type="text" name="emailPassword" value="$!model.emailPassword" class="required"/>
+    </div>
+
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			开关
+		</span>
+        <select class="form-control"  name="onOff" style="width:355px;height:30px;">
+			<option value='0' #if($!model.onOff == 0) selected #end>启用</option>
+            <option value='1' #if($!model.onOff == 1) selected #end>禁用</option>
+		</select>
+	</div>
+
+
+</form>

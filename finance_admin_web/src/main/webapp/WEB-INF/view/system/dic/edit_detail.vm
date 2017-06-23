@@ -1,0 +1,27 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+    <div class="input-group">
+        <input type="hidden" name="id" value="$!model.id"/>
+		<span class="input-group-addon input-group-addon-80">
+			编码
+		</span>
+        <input style="width:355px" type="text" name="code" value="$!model.code" class="required"/>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80" >
+			名称
+		</span>
+        <input style="width:355px" type="text" name="name"  value="$!model.name" class="required" />
+    </div>
+
+    <div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80" >
+			数值
+		</span>
+        <input style="width:355px" type="text" name="value"  value="$!model.value" class="required"/>
+    </div>
+
+</form>

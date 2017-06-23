@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="demoService" interface="com.jibinfo.finance.service.demo.DemoService" check="false" timeout="20000"/>
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemAdminUserService" interface="com.jibinfo.finance.service.system.SystemAdminUserService" check="false" timeout="20000"/>
+		
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemMenuService" interface="com.jibinfo.finance.service.system.SystemMenuService" check="false" timeout="20000"/>
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemDicService" interface="com.jibinfo.finance.service.system.SystemDicService" check="false" timeout="20000"/>
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemDicDetailService" interface="com.jibinfo.finance.service.system.SystemDicDetailService" check="false" timeout="20000"/>
+
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="systemRoleService" interface="com.jibinfo.finance.service.system.SystemRoleService" check="false" timeout="20000" />
+    
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="systemResourceService" interface="com.jibinfo.finance.service.system.SystemResourceService" check="false" timeout="20000" />
+
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="systemRoleMenuRefService" interface="com.jibinfo.finance.service.system.SystemRoleMenuRefService" check="false" timeout="20000" />
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemUserRoleRefService" interface="com.jibinfo.finance.service.system.SystemUserRoleRefService" check="false" timeout="20000" />
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemWebsiteService" interface="com.jibinfo.finance.service.system.SystemWebsiteService" check="false" timeout="20000" />
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemStaticPageService" interface="com.jibinfo.finance.service.system.SystemStaticPageService" check="false" timeout="20000" />
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemProvinceService" interface="com.jibinfo.finance.service.system.SystemProvinceService" check="false" timeout="20000" />
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemCityService" interface="com.jibinfo.finance.service.system.SystemCityService" check="false" timeout="20000" />
+	
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemAreaService" interface="com.jibinfo.finance.service.system.SystemAreaService" check="false" timeout="20000" />
+	
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemSensitiveService" interface="com.jibinfo.finance.service.system.SystemSensitiveService" check="false" timeout="20000" />
+	
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="systemChannelService" interface="com.jibinfo.finance.service.system.SystemChannelService" check="false" timeout="20000" />
+
+</beans>

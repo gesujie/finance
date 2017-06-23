@@ -1,0 +1,40 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+    <table border="1" cellspacing="0" width="95%">
+         <tr>
+            <td><font style="font-weight:bold;">来源名称</font></td>
+            <td>$!gateway.sourceName</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">来源CODE</font></td>
+            <td>$!gateway.sourceCode</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">app_key</font></td>
+            <td>$!gateway.appKey</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">app_secret</font></td>
+            <td>$!gateway.appSecret</td>
+        </tr>
+         <tr>
+            <td><font style="font-weight:bold;">请求URL</font></td>
+            <td>$!gateway.requestUrl</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">签名字样</font></td>
+            <td>$!gateway.signName</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">类型</font></td>
+            <td>$!gateway.type</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">状态</font></td>
+            <td>
+                #if($!gateway.onOff == '0') 启用短信网关  #end
+                #if($!gateway.onOff == '1') 关闭短信网关  #end
+            </td>
+        </tr>
+    </table>
+</form>

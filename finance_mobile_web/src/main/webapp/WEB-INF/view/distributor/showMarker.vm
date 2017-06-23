@@ -1,0 +1,55 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/appointment.css","Keywords":"城市名定位","Description":"城市名定位","title":"城市名定位"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">经销商地图<a href="javascript:;" class="right-side-link appointment_click">预约</a></h2>
+        </header>
+    </div>
+	<div id="allmap"></div>
+	<div id="r-result"></div>
+	<input id="longitude" value="${LONGITUDE}" type="hidden"/>
+	<input id="latitude" value="${LATITUDE}" type="hidden"/>
+	<input id="companyName" value="${company}" type="hidden"/>
+	<input id="companyAddress" value="${address}" type="hidden"/>
+	<div class="dealer_content" style="display: none;background-color: #f1f1f1;">
+       <div class="header-base-color sq-index-nav ">
+            <header class="bar bar-nav header-bg">
+                <a href="javascript:;" class="back-to-prev-btn closeDialog"><span class="icon icon-left"></span></a>
+                <h2 class="text-center bar-title">预约</h2>
+            </header>
+        </div>
+        <div>
+             <div class="item-content">
+                 <div class="item-inner">
+                      <div class="item-title label">关注车型</div>
+                      <div class="item-input">
+						  <input type="text" id="carBrandName" placeholder="" readonly>
+              		  </div>
+					  <span class="icon icon-right selectSubBrand"></span>
+				  </div>
+			 </div>
+			 <div class="item-content">
+				 <div class="item-inner">
+					  <textarea id="remark" type="text" placeholder="输入关注车型情况或贷款咨询等您想了解的信息"></textarea>
+				  </div>
+             </div>
+			 <div class="item-content  margin-to">
+    			 <div class="item-inner">
+                          <div class="item-title label">手机号</div>
+                          <div class="item-input">
+    						  <input type="text" id="mobile" placeholder="请输入您的手机号">
+                  		  </div>
+    				  </div>
+    			 </div>
+             </div>
+			 
+			 <div class="btnContrain margin-to">
+    			 <button class="emphasized">提交</button>
+    		</div>
+		</div>
+	</div>
+</div>
+#set($footer_params={"js":"jibinfoFinance/mobile/scripts/markMap.js"})
+#no_frontend_footer($footer_params)

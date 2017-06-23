@@ -1,0 +1,136 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/swiper.min.css,jibinfoFinance/mobile/css/loan_test.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+    ##主内容开始
+    <div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">小测试<a href="$mobile_finance_path/account/loanTest.html" class="right-side-link test-again">再测一次</a></h2>
+        </header>
+    </div> 
+    
+    <div class="swiper-container" style="height:550px;padding-top:0.5rem;">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+				<p style="font-size: 14px; margin: 10px 0; padding: 0 20px; text-align: center; color: #999;">完善个人信息，好车e贷会评估出您的最高贷款额度和最低首付，请保证您填写信息的真实性。</p>
+                <section>
+                    <p class="question angleUp">申请人年龄</p>
+                    <div class="answers">
+						<div class="single"><label><input type="radio" name="q1" value="1">56~65岁</label></div>
+						<div class="single"><label><input type="radio" name="q1" value="2">40~55岁</label></div>
+						<div class="single"><label><input type="radio" name="q1" value="3">30~39岁</label></div>
+						<div class="single"><label><input type="radio" name="q1" value="4">24~29岁</label></div>
+						<div class="single"><label><input type="radio" name="q1" value="5">18~23岁</label></div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section>
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">学历</p>
+                    <div class="answers">
+						<div class="single"><label><input type="radio" name="q2" value="1">博士及以上</label></div>
+						<div class="single"><label><input type="radio" name="q2" value="2">硕士</label></div>
+						<div class="single"><label><input type="radio" name="q2" value="3">本科</label></div>
+						<div class="single"><label><input type="radio" name="q2" value="4">大专</label></div>
+						<div class="single"><label><input type="radio" name="q2" value="5">中学</label></div>
+						<div class="single"><label><input type="radio" name="q2" value="6">其他</label></div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section>
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">婚姻状况</p>
+                    <div class="answers">
+						<div class="single"><label><input type="radio" name="q3" value="1">已婚</label></div>
+						<div class="single"><label><input type="radio" name="q3" value="2">单身</label></div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section>
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">购车地住房情况</p>
+                    <div class="answers">
+					    <div class="single"><label><input type="radio" name="q4" value="1">租房住</label></div>
+						<div class="single"><label><input type="radio" name="q4" value="2">住在父母所在公寓</label></div>
+						<div class="single"><label><input type="radio" name="q4" value="3">拥有自己的房产</label></div>
+						<div class="single"><label><input type="radio" name="q4" value="4">配偶名下有房产</label></div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section style="height: 100%;">
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">您的工作信息</p>
+                    <div class="answers work_information">
+						<div class="compress compressDiv" compressid="0"><label><input type="radio" name="q5" value="1">工薪人士</label></div>
+						<div class="compress compressDiv" compressid="1"><label><input type="radio" name="q5" value="1">企业法人代表</label></div>
+						<div class="single compressDiv"><label><input type="radio" name="q5" value="1">个体工商户</label></div>
+						<div class="single compressDiv"><label><input type="radio" name="q5" value="1">自由职业</label></div>
+						<div class="answers subAnswersMark subAnswersMark_0">
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">国家公务员</label></div>
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">著名国有、外资、合资企业正式员工</label></div>
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">银行、保险、证券行业从业人员</label></div>
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">医生、护士、律师、教师</label></div>
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">当地知名企业员工</label></div>
+							<div class="single compressSubDiv compressSubDiv_0"><label><input type="radio" name="q5" value="1">普通企业员工</label></div>
+						</div>
+						<div class="answers subAnswersMark subAnswersMark_1">
+							<div class="single compressSubDiv compressSubDiv_1"><label><input type="radio" name="q5" value="1">200人以上企业</label></div>
+							<div class="single compressSubDiv compressSubDiv_1"><label><input type="radio" name="q5" value="1">50-200人企业</label></div>
+							<div class="single compressSubDiv compressSubDiv_1"><label><input type="radio" name="q5" value="1">1-50人以下企业</label></div>
+							<div class="over" style="color: #f7f7f7; border-color: #f7f7f7;background: #f7f7f7;"><label><input type="radio" name="" value="">1-50人以下企业</label></div>
+						</div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section class="working-section">
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">职位级别</p>
+                    <div class="answers">
+						<div class="single"><label><input type="radio" name="q6" value="1">高级</label></div>
+						<div class="single"><label><input type="radio" name="q6" value="2">中级</label></div>
+						<div class="single"><label><input type="radio" name="q6" value="3">初级</label></div>
+						<div class="single"><label><input type="radio" name="q6" value="4">新人</label></div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section>
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp" style="margin: 0px 70px;">个人信用情况(可多选)</p>
+                    <div class="answers multiMark">
+						<div class="multi_div_normal"><label><input type="radio" name="q7" value="1">有信用卡</label></div>
+						<div class="multi_div_normal"><label><input type="radio" name="q7" value="2">有房贷或已还完</label></div>
+						<div class="multi_div_normal"><label><input type="radio" name="q7" value="3">有车贷或已还完</label></div>
+						<div class="multi_div_normal"><label><input type="radio" name="q7" value="4">有其它类贷款</label></div>
+						<div class="multiSpecialBtn"><label><input type="radio" name="q7" value="5">没有以上信用情况</label></div>
+						<div id="mulNextBtn">下一题</div>
+					</div>
+                </section>
+            </div>
+            <div class="swiper-slide">
+                <section>
+					<i class="angleUp icon icon-up"></i>
+                    <p class="question angleUp">税后年收入(元)</p>
+                    <div class="answers">
+						<div id="fill" class="fill">
+							<div style="padding: 10px 0;">
+								<input id="fillInput" type="tel" style="height: 30px;" oninput="checkNumInput(this,8);" placeholder="请输入税后年收入(元)">
+								<div class="btn" onclick="commonGetUserAnswer(&quot;fill&quot;);">确定</div>
+							</div>
+						</div>
+					</div>
+                </section>
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/loan_test.js"})
+#frontend_footer($footerParams)

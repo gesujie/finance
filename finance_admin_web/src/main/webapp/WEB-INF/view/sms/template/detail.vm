@@ -1,0 +1,37 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+    <table border="1" cellspacing="0" width="95%" class="detail">
+        <tr>
+            <td><font>类型</font></td>
+            <td>
+                #if($!template.type == '0') 验证码  #end
+                #if($!template.type == '1') 短信  #end
+            </td>
+        </tr>
+        <tr>
+            <td><font>CODE</font></td>
+            <td>$!template.code</td>
+        </tr>
+         <tr>
+            <td><font>名称</font></td>
+            <td>$!template.name</td>
+        </tr>
+        <tr>
+            <td><font>内容</font></td>
+            <td>$!template.content</td>
+        </tr>
+        <tr>
+            <td><font>描述</font></td>
+            <td>$!template.remark</td>
+        </tr>
+    </table>
+</form>
+<style>
+    .modal-body 
+    .detail{
+            position: relative;
+            clear: both;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+    }
+</style>

@@ -1,0 +1,40 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			任务名
+		</span>
+		<input style="width:355px" type="text" name="name" required="true"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			包路径
+		</span>
+        <input style="width:355px" type="text" name="fullClassName"  required="true" />
+    </div>
+
+    <div class="space-4"></div>
+
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			CRON
+		</span>
+        <input style="width:355px" type="text" name="cron" required="true"/>
+    </div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			所属模块
+		</span>
+		<select name="module" required="true">
+			<option value="SYSTEM">SYSTEM</option>
+            <option value="USER">USER</option>
+            <option value="WEBSITE">WEBSITE</option>
+            <option value="QUESTION">QUESTION</option>
+            <option value="INTERFACE">INTERFACE</option>
+		</select>
+	</div>
+</form>

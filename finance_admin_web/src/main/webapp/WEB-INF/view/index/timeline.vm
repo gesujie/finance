@@ -1,0 +1,157 @@
+<div class="timeline-container timeline-style1">
+    <span class="timeline-label">
+        <b>项目的一些基础的时间轴的任务信息列表</b>
+    </span>
+
+    <div class="timeline-items">
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-05-27</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        完成短信相关功能，操作短信网关和短信模板以及查看验证码和短信内容
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-05-24</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        完成缓存删除功能，根据key删除以及清空缓存
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-05-18</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        完成汽车信息管理模块，可以操作车品牌、车系和车型
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-25</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        完成所有的系统模块的基础的功能.也就是一个最基础的功能已经搭建完成
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-21</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        完成资源配置,角色管理,字典管理,给用户添加角色等功能.
+                        未完成的只有给角色分配资源,已经给用户添加相关的后台菜单权限查询
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-17</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        添加系统字典维护信息,字典类型以及字典明细的后台和前端页面
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-11</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                       后台登陆用户信息的维护的CURD的基本操作完成.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-10</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        后台菜单的维护,CURD的操作以及后台的菜单三级的显示问题,在基础的二级菜单的基础上添加三级菜单的显示,
+                        利用BootstarpDialog和BootstrapTable,Fuele.Tree等第三方插件对后台数据维护的一个模板的创建.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-07</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        整体BootstrapTable,完成后台数据列表页面的数据列表呈现功能.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-04</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                        整体Bootstrap 里的Dialog 的第三方插件功能,实现页面弹窗功能.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="timeline-item clearfix">
+            <div class="timeline-info">
+                <span class="label label-info label-sm">17-04-02</span>
+            </div>
+
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main">
+                       完成后台的整体的框架的搭建
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.timeline-items -->
+</div><!-- /.timeline-container -->

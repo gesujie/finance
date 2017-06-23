@@ -1,0 +1,26 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/myMessages.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">留言咨询</h2>
+        </header>
+    </div>    
+	<div class="message-content content">
+        <div class="msg-content" style="">
+		
+		</div>
+        <div class="msg-footer">
+    		<div class="footer-content">
+    			<div class="textContain">
+    				<textarea id="msg" placeholder="请输入"></textarea>
+    			</div>
+    			<button class="emphasized confirmSubmit">发送</button>
+    		</div>
+    	</div>
+	</div>
+    
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/myMessages.js"})
+#frontend_footer($footerParams)

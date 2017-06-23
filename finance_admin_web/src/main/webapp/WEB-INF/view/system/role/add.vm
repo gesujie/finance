@@ -1,0 +1,22 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">名称</span>
+		<input style="width:355px" type="text" name="name" class="required" id="name"/>
+	</div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">CODE</span>
+        <input style="width:355px" type="text" name="roleCode" class="required" id="roleCode"/>
+    </div
+	
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">描述</span>
+        <textarea style="width:355px" name="roleDesc" id="roleDesc"/>
+    </div
+</form>

@@ -1,0 +1,43 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/search.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+		<div class="searchbar row">
+            <div class="search-input col-80">
+			   <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+              <label class="icon icon-search" for="search"></label>
+              <div class="center_select_order">
+        			<input type="hidden" name="default_brand" id="default_brand" value="">
+        			
+        			<div class="city_sell_car_right selectZones">
+        				<div class="combobox"><input type="text" placeholder="请输入" name="car_brand" class="car_brand" id="carBrand" item_value="" attr_value="" value="" autocomplete="off"></div>
+        			</div>
+        			
+        			<div class="magnifier" onclick="gohrefDescription()"></div>
+        		</div>
+            </div>
+            <a class="button button-fill button-primary col-20">搜索</a>
+        </div>
+    </div>
+    <div class="search_content">
+    	<ul id="subBrandSousuo" style="display: none;">
+            				
+    	</ul>
+    	<div id="noSubAndBrand" style="display: none;">
+    		<p class="sou_remind">对不起，没有找到关键字“<span class="remind_keyword error_text"></span>”的车型或品牌</p>
+    		##<div class="noModel_right">
+    		##	<p class="car_brand_name">热门查询</p>
+    		##	<ul class="base_blue">
+    		##		<li><a class="base_blue">大众</a></li>
+    		##		<li><a class="base_blue">斯柯达</a></li>
+    		##		<li><a class="base_blue">MG</a></li>
+    		##		<li><a class="base_blue">荣威</a></li>
+    		##	</ul>
+    		##</div>
+    	</div>
+	</div>
+	<section class="mat-win J_matwin"></section>
+	
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/search.js"})
+#jq_frontend_footer($footerParams)

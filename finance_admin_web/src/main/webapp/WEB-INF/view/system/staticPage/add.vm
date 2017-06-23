@@ -1,0 +1,33 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">名称</span>
+		<input style="width:355px" type="text" name="name" class="required"/>
+	</div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">KEY</span>
+        <input style="width:355px" type="text" name="keyCode" value="$!model.keyCode"  readonly/>
+    </div
+
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">URL</span>
+        <input style="width:355px" type="text" name="url" />
+    </div
+    <div class="space-4"></div>
+    <div class="space-4"></div>
+    <input type="hidden" name="pageContent" id="pageContent"/>
+    <div class="input-group">
+        <div id="myEditor" style="width:800px;max-height:500px;"></div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var um = UM.getEditor('myEditor');
+</script>

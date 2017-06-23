@@ -1,0 +1,69 @@
+## 添加页面
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+    <input name="id" type="hidden" value="$!model.id" />
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			用户名
+		</span>
+		<input style="width:355px" type="text" name="userName" value="$!model.userName" class="required"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			姓名
+		</span>
+        <input style="width:355px" type="text" name="name" value="$!model.name"/>
+    </div>
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			性别
+		</span>
+        <select class="form-control"  name="sex" style="width:355px;height:30px;">
+			<option value='男' #if($!model.sex == '男') selected #end>男</option>
+            <option value='女' #if($!model.sex == '女') selected #end>女</option>
+		</select>
+	</div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			昵称
+		</span>
+		<input style="width:355px" type="text" name="nickname" value="$!model.nickname"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			邮箱
+		</span>
+		<input style="width:355px" type="text" name="email" value="$!model.email" class="required email"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			手机号
+		</span>
+		<input style="width:355px" type="text" name="mobile" value="$!model.mobile" class="required digits"/>
+	</div>
+    <div class="space-4"></div>
+    <div class="input-group" id="uploader-demo">
+      <span class="input-group-addon input-group-addon-80">
+			头像
+		</span>
+        <img id="avatarImg" width="200px" height="100px"  #if($!model.userIcon) src="$!images_path$!model.userIcon" #end style="float: left"/>
+        <div style="float: left">
+            <input id="avatarUserIcon" type="hidden" name="userIcon" #if($!model.userIcon) value="$!model.userIcon" #end/>
+            <div id="filePicker">选择图片</div>
+            <a id="deleteImg" style="cursor: pointer;display: none;">删除</a>
+        </div>
+    </div>
+	
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/system/user_upload.js"></script>

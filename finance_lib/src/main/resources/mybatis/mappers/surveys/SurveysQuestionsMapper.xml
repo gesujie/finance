@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.surveys.SurveysQuestionsMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.surveys.SurveysQuestions" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="SURVEY_CODE" property="surveyCode" jdbcType="VARCHAR" />
+    <result column="QUESTION_CODE" property="questionCode" jdbcType="VARCHAR" />
+    <result column="QUESTION_DESC" property="questionDesc" jdbcType="VARCHAR" />
+    <result column="ANSWER_OPTION" property="answerOption" jdbcType="VARCHAR" />
+    <result column="OPTION_DESC" property="optionDesc" jdbcType="VARCHAR" />
+    <result column="START_TIME" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="IP" property="ip" jdbcType="VARCHAR" />
+    <result column="FCODE" property="fcode" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="IS_DEL" property="isDel" jdbcType="CHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, SURVEY_CODE, QUESTION_CODE, QUESTION_DESC, ANSWER_OPTION, OPTION_DESC, START_TIME, 
+    END_TIME, IP, FCODE, USER_ID, IS_DEL, CREATED_DATE, UPDATED_DATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestionsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from surveys_questions
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="paginator != null and paginator.offset != null and paginator.itemsPerPage != null" >
+      LIMIT #{paginator.offset,jdbcType=INTEGER},#{paginator.itemsPerPage,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from surveys_questions
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from surveys_questions
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestionsExample" >
+    delete from surveys_questions
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestions" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into surveys_questions (SURVEY_CODE, QUESTION_CODE, QUESTION_DESC, 
+      ANSWER_OPTION, OPTION_DESC, START_TIME, 
+      END_TIME, IP, FCODE, 
+      USER_ID, IS_DEL, CREATED_DATE, 
+      UPDATED_DATE)
+    values (#{surveyCode,jdbcType=VARCHAR}, #{questionCode,jdbcType=VARCHAR}, #{questionDesc,jdbcType=VARCHAR}, 
+      #{answerOption,jdbcType=VARCHAR}, #{optionDesc,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}, #{fcode,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{isDel,jdbcType=CHAR}, #{createdDate,jdbcType=TIMESTAMP}, 
+      #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestions" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into surveys_questions
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="surveyCode != null" >
+        SURVEY_CODE,
+      </if>
+      <if test="questionCode != null" >
+        QUESTION_CODE,
+      </if>
+      <if test="questionDesc != null" >
+        QUESTION_DESC,
+      </if>
+      <if test="answerOption != null" >
+        ANSWER_OPTION,
+      </if>
+      <if test="optionDesc != null" >
+        OPTION_DESC,
+      </if>
+      <if test="startTime != null" >
+        START_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="ip != null" >
+        IP,
+      </if>
+      <if test="fcode != null" >
+        FCODE,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="surveyCode != null" >
+        #{surveyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="questionCode != null" >
+        #{questionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="questionDesc != null" >
+        #{questionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="answerOption != null" >
+        #{answerOption,jdbcType=VARCHAR},
+      </if>
+      <if test="optionDesc != null" >
+        #{optionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="fcode != null" >
+        #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestionsExample" resultType="java.lang.Integer" >
+    select count(*) from surveys_questions
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update surveys_questions
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.surveyCode != null" >
+        SURVEY_CODE = #{record.surveyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.questionCode != null" >
+        QUESTION_CODE = #{record.questionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.questionDesc != null" >
+        QUESTION_DESC = #{record.questionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answerOption != null" >
+        ANSWER_OPTION = #{record.answerOption,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optionDesc != null" >
+        OPTION_DESC = #{record.optionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null" >
+        START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ip != null" >
+        IP = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fcode != null" >
+        FCODE = #{record.fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        USER_ID = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=CHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update surveys_questions
+    set ID = #{record.id,jdbcType=BIGINT},
+      SURVEY_CODE = #{record.surveyCode,jdbcType=VARCHAR},
+      QUESTION_CODE = #{record.questionCode,jdbcType=VARCHAR},
+      QUESTION_DESC = #{record.questionDesc,jdbcType=VARCHAR},
+      ANSWER_OPTION = #{record.answerOption,jdbcType=VARCHAR},
+      OPTION_DESC = #{record.optionDesc,jdbcType=VARCHAR},
+      START_TIME = #{record.startTime,jdbcType=TIMESTAMP},
+      END_TIME = #{record.endTime,jdbcType=TIMESTAMP},
+      IP = #{record.ip,jdbcType=VARCHAR},
+      FCODE = #{record.fcode,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=BIGINT},
+      IS_DEL = #{record.isDel,jdbcType=CHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestions" >
+    update surveys_questions
+    <set >
+      <if test="surveyCode != null" >
+        SURVEY_CODE = #{surveyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="questionCode != null" >
+        QUESTION_CODE = #{questionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="questionDesc != null" >
+        QUESTION_DESC = #{questionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="answerOption != null" >
+        ANSWER_OPTION = #{answerOption,jdbcType=VARCHAR},
+      </if>
+      <if test="optionDesc != null" >
+        OPTION_DESC = #{optionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="fcode != null" >
+        FCODE = #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.surveys.SurveysQuestions" >
+    update surveys_questions
+    set SURVEY_CODE = #{surveyCode,jdbcType=VARCHAR},
+      QUESTION_CODE = #{questionCode,jdbcType=VARCHAR},
+      QUESTION_DESC = #{questionDesc,jdbcType=VARCHAR},
+      ANSWER_OPTION = #{answerOption,jdbcType=VARCHAR},
+      OPTION_DESC = #{optionDesc,jdbcType=VARCHAR},
+      START_TIME = #{startTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      IP = #{ip,jdbcType=VARCHAR},
+      FCODE = #{fcode,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      IS_DEL = #{isDel,jdbcType=CHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <dubbo:application name="finance_web" />
+
+    <dubbo:registry address="${zookeeper_dubbo}" check="false"/>
+    <dubbo:annotation package="com.jibinfo"/>
+	
+    <dubbo:reference version="${zookeeper_dubbo_version}" id="demoService" interface="com.jibinfo.finance.service.demo.DemoService" check="false" timeout="20000"/>
+
+	<dubbo:reference version="${zookeeper_dubbo_version}" id="producerService" interface="com.jibinfo.finance.service.demo.ProducerService" check="false" timeout="20000"/>
+
+
+</beans>

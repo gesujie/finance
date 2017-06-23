@@ -1,0 +1,25 @@
+<div class="header-base-color">
+    <header class="bar bar-nav header-bg">
+        <a href="javascript:;" class="back-to-prev-btn" id="closeActDia"><span class="icon icon-left"></span></a>
+        <h2 class="text-center bar-title">选择品牌</h2>
+    </header>
+</div>    
+<div class="zero_rate_content">
+    <div class="tabs zero_rate" style="padding-top:0.5rem;">
+		<ul class="list-unstyled list-container list-activity">
+			 <li class="item-content item-example item-content-activity" style="display: none;">
+				  <a name="" class="item-title title"></a>
+                  <div class="item-select">
+				  	  <div class="item-select-example hidden currentItem"> <p class="brandName"></p></div>
+				  </div>
+              </li>
+		</ul>
+	</div>
+	<div class="silder-nav">
+        <ul class="silder-container">
+            <li class="silder-example silder-content" style="display: none;">
+				<a alt=""></a>
+			</li>
+		</ul>
+	</div>
+</div>

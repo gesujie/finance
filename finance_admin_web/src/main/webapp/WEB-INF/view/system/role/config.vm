@@ -1,0 +1,23 @@
+## 配置页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-form" role="form" method="POST">
+    <input style="width:355px" type="hidden" name="id" id="id" value="$!role.id"/>
+    <div class="widget-body">
+        <div class="widget-main padding-8">
+            <div id="container"></div>
+        </div>
+    </div>
+</form>
+<script src="$static_path/jibinfoFinance/manager/js/finance/system/role_config.js"></script>
+
+<style>
+    .config-dialog 
+    .modal{
+        overflow:hidden
+    }
+    .modal-body{
+        height:480px;
+        max-height:480px;
+        overflow-y:auto;
+    }
+</style>

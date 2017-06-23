@@ -1,0 +1,14 @@
+## 添加页面
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-set-form" role="form" method="POST">
+    <input name="id" type="hidden" id="userId" value="$!model.id" />
+	<div class="input-group"">
+		<span class="input-group-addon input-group-addon-80">
+			描述
+		</span>
+		<input style="width:355px" id="blackRemark" type="text" value=""/>
+	</div>
+	
+	
+</form>

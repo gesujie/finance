@@ -1,0 +1,102 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/appointment.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color sq-index-nav ">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">预约经销商</h2>
+			<a class="sq-nav-address">
+                <i class="icon-address"></i>
+                <span class="J_index_city">上海市</span>
+        		<input type="hidden" id="topCityAreaId" value="">
+            </a>
+        </header>
+    </div>    
+	<div class="appointment_content content">
+        <div>
+			<div class="select-div ">
+                <ul class="flex-container">
+    				<li id="select-area" class="select-area flex-item">
+        				<p>所有区域</p>
+        				<i class="icon icon-down"></i>
+        			</li>
+        			<li id="service-type" class="service-type flex-item">
+        				<p>支持神速贷</p>
+        				<i class="icon icon-down"></i>
+        			</li>
+    			</ul>
+    			<div class="areaAndAll"  style="display: none;">
+                	<li><a href="javascript:;">所有区域</a></li>
+                	<ul class="J_areaList"></ul>
+            	</div>
+				<div class="supportSelect"  style="display: none;">
+                	<li class="supportAll"><a href="javascript:;">所有</a></li>
+                    <li class="onlyssd"><a href="javascript:;">神速贷</a></li>
+            	</div>
+    		</div>
+			
+			<div class="brandDisContent flex-container">
+                <div class="flex-item flex-item-first">
+                        ##<p class="top-p">品牌</p>
+                    <ul class="list-container" id="branchList">
+						<li class="item-content item-example item-content-brand" style="display: none;">
+            				  <a name="" class="item-title title"></a>
+                              <div class="item-select">
+            				  	  <div class="item-select-example hidden currentItem"> <p class="brandName"></p></div>
+            				  </div>
+                        </li>
+					</ul>
+    			</div>
+                <div class="flex-item flex-item-second">
+                    <ul class="disList">
+						<li class="item-content dis-example item-content-dis" style="display: none;">
+							<a href="">
+                          <div class="item-select">
+							<img src=""/>
+							<p class="disName"></p>
+							<p class="address"></p>
+							<p class="num"><span></span>预约</p>
+							<p class="ssd"></p>
+							<div class="clear"></div>
+        				  </div>
+							</a>
+                        </li>
+					</ul>
+    			</div>
+    		</div>
+			<section class="mat-right J_silder_city">
+                <div class="mat-slideWarp">
+                    <div class="mat-slidePannel">
+                        <!-- 后端刷入的内容 -->
+                        <div class="header-base-color">
+                            <header class="bar bar-nav header-bg">
+                                <a href="javascript:;" class="back-to-prev-btn" id="cityselectDia"><span class="icon icon-left"></span></a>
+                                <h2 class="text-center bar-title">城市选择</h2>
+                            </header>
+                        </div>
+                        <aside class="m-aside">
+                            <ul class="J_provinceList">
+        						
+                            </ul>
+        					<ul class="J_cityList page-container hide">
+                                <li><a href="javascript:;">加载中请稍后……</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+		</div>
+	</div>
+</div>
+<script type="text/template" id="provTemplate">
+    <li data-id="{ids}" data-code="{codes}"><a href="javascript:;">{names}</a></li>
+</script>
+<script type="text/template" id="cityTemplate">
+    <li data-proCode="{proCode}" data-code="{codes}"><a href="javascript:;">{names}</a></li>
+</script>
+<script type="text/template" id="areaTemplate">
+    <li data-proCode="{proCode}" data-cityCode="{cityCode}" data-code="{codes}"><a href="javascript:;">{names}</a></li>
+</script>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/appointment.js"})
+#frontend_footer($footerParams)

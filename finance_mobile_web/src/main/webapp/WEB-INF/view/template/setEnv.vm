@@ -1,0 +1,25 @@
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+##set( $static_path = "http://static.yysports.com")
+##set( $static_common_path = $static_path + "/common")
+##set( $static_yysports_path = $static_path + "/yysports")
+ #set( $mobile_path = ${config.getProperty("urlPath","mobile_path")})
+  #set( $mobile_finance_path = ${config.getProperty("urlPath","mobile_finance_path")})
+ #set( $wechat_path = ${config.getProperty("urlPath","wechat_path")})
+ 
+ #set( $gateway_path = ${config.getProperty("urlPath","gateway_path")})
+#set( $file_path = ${config.getProperty("urlPath","file_path")})
+#set( $trade_path = ${config.getProperty("urlPath","trade_path")})
+
+#set( $web_path = ${config.getProperty("urlPath","web_path")})
+#set( $account_path = ${config.getProperty("urlPath","account_path")})
+#set( $shop_path = ${config.getProperty("urlPath","shop_path")})
+#set( $item_path = ${config.getProperty("urlPath","item_path")})
+#set( $order_path = ${config.getProperty("urlPath","order_path")})
+#set( $sso_path = ${config.getProperty("urlPath","sso_path")})
+
+#set( $main_path = ${config.getProperty("urlPath","main.domain.url")})
+#set( $logout_path = ${config.getProperty("urlPath","sso.logout.url")})
+#set( $m_logout_path = ${config.getProperty("urlPath","sso.m.logout.url")})
+
+#set( $news_path = ${config.getProperty("urlPath","news_path")})

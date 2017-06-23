@@ -1,0 +1,50 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="rate-save-update-form" role="form" method="POST">
+    <input name="id" type="hidden" value="$!loanRate.id" />
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">省份</span>
+		<select style="width:355px" type="text" name="pid"  id="calcProvince">
+			<option value="">--请选择--</option>
+            #foreach($province in $provinceList)
+				<option value="$province.id" #if($province.id == $!loanRate.pid) selected='selected' #end>$province.name</option>
+			#end
+		</select>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">贷款方案</span>
+		<select style="width:355px" type="text" name="code" id="calcloanType">
+			<option value="">--请选择--</option>
+            #foreach($systemDicDetail in $systemDicDetailList)
+				<option num-value="$systemDicDetail.value" value="$systemDicDetail.code" #if($systemDicDetail.code == $!loanRate.code) selected='selected' #end>$systemDicDetail.name</option>
+			#end
+		</select>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">利率</span>
+		<input style="width:355px" type="text" name="rate" id="loanrate" value="$!loanRate.rate"/>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">贷款金额（元）</span>
+		<input style="width:355px" type="text" name="price" id="price" value=""/>
+	</div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">月供金额（元）</span>
+		<input style="width:355px" type="text" name="mouthPrice" id="mouthPrice" value="" readonly="readonly" />
+	</div>
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/carLoanCalc.js"></script>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/car/valid.js"></script>
+
+<style >
+    .input-group
+    .help-block{
+        display: inline-block;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>

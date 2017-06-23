@@ -1,0 +1,77 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/account_manage.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn step"><span class="icon icon-left"></span></a>
+			<a href="javascript:;" class="back-to-prev-btn pre-step" style="display: none;"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">修改手机账号</h2>
+        </header>
+    </div>    
+	<div class="list-block updateMobile-content content first-step">
+        <ul>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">原手机号</div>
+                          <div class="item-input">
+							  <input type="text" id="oldMobile" placeholder="" readonly>
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">图形验证码</div>
+                          <div class="item-input">
+							  <input type="text" id="validcode" placeholder="请输入图形验证码">
+							  <img class="user-captcha-image" id="codeimages">
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">验证码</div>
+                          <div class="item-input get-captcha">
+							   <input type="text" id="captcha" placeholder="请输入验证码">
+							   <p class="code-link right" id="get_payidentify" href="javascript:void(0);">
+        			        	  <span class="medium" id="buttonClickCaptcha">发送验证码</span>
+    			               </p>
+                    	  </div>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">身份证号</div>
+                          <div class="item-input">
+							  <input type="text" id="idCard" placeholder="">
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+		</ul>
+       <div class="confirm-button-div"><button type="button" class="confirm-button next-step">下一步</button></div>
+	</div>
+    <div class="list-block second-step" style="display: none;">
+		 <ul>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">新手机号</div>
+                          <div class="item-input">
+							  <input type="text" id="newMobile" placeholder="">
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+         </ul>
+		<div class="confirm-button-div"><button type="button" disabled="true" class="confirm-button">确认</button></div>
+	</div>
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/accountManage.js"})
+#frontend_footer($footerParams)

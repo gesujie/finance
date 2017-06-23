@@ -1,0 +1,34 @@
+<toolbox>
+	<xhtml>true</xhtml>
+
+	<tool>
+		<key>stringUtil</key>
+		<scope>application</scope>
+		<class>com.jibinfo.framework.utils.StringUtils</class>
+	</tool>
+		
+	<tool>
+	    <key>config</key>
+	    <scope>application</scope>
+	    <class>com.jibinfo.framework.support.utility.Configuration</class>
+	</tool>
+	
+	<tool>
+	    <key>cookie</key>
+	    <scope>application</scope>
+	    <class>com.jibinfo.framework.support.utility.CookieUtility</class>
+	</tool>
+	
+	<tool>
+		<key>actionFrameworkContext</key>
+		<scope>application</scope>
+		<class>com.jibinfo.framework.support.utility.ActionContext</class>
+	</tool>
+	
+	<tool>
+		<key>actionContext</key>
+		<scope>application</scope>
+		<class>com.jibinfo.finance.utils.ActionContext</class>
+	</tool>
+	
+</toolbox>

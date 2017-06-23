@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.car.CarModelMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.car.CarModel" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="SID" property="sid" jdbcType="BIGINT" />
+    <result column="MODEL_NAME" property="modelName" jdbcType="VARCHAR" />
+    <result column="MODEL_PRICE" property="modelPrice" jdbcType="VARCHAR" />
+    <result column="MODEL_YEAR" property="modelYear" jdbcType="VARCHAR" />
+    <result column="LITER" property="liter" jdbcType="VARCHAR" />
+    <result column="GEAR_TYPE" property="gearType" jdbcType="VARCHAR" />
+    <result column="DISCHARGE_STANDARD" property="dischargeStandard" jdbcType="VARCHAR" />
+    <result column="SEAT_NUMBER" property="seatNumber" jdbcType="VARCHAR" />
+    <result column="SHORT_NAME" property="shortName" jdbcType="VARCHAR" />
+    <result column="MIN_GRE_YEAR" property="minGreYear" jdbcType="VARCHAR" />
+    <result column="MAX_GER_YEAR" property="maxGerYear" jdbcType="VARCHAR" />
+    <result column="PICTURE_URL" property="pictureUrl" jdbcType="VARCHAR" />
+    <result column="IS_DEL" property="isDel" jdbcType="CHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, SID, MODEL_NAME, MODEL_PRICE, MODEL_YEAR, LITER, GEAR_TYPE, DISCHARGE_STANDARD, 
+    SEAT_NUMBER, SHORT_NAME, MIN_GRE_YEAR, MAX_GER_YEAR, PICTURE_URL, IS_DEL, CREATED_DATE, 
+    UPDATED_DATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.car.CarModelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from car_model
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="paginator != null and paginator.offset != null and paginator.itemsPerPage != null" >
+      LIMIT #{paginator.offset,jdbcType=INTEGER},#{paginator.itemsPerPage,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from car_model
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from car_model
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.car.CarModelExample" >
+    delete from car_model
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.car.CarModel" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into car_model (SID, MODEL_NAME, MODEL_PRICE, 
+      MODEL_YEAR, LITER, GEAR_TYPE, 
+      DISCHARGE_STANDARD, SEAT_NUMBER, SHORT_NAME, 
+      MIN_GRE_YEAR, MAX_GER_YEAR, PICTURE_URL, 
+      IS_DEL, CREATED_DATE, UPDATED_DATE
+      )
+    values (#{sid,jdbcType=BIGINT}, #{modelName,jdbcType=VARCHAR}, #{modelPrice,jdbcType=VARCHAR}, 
+      #{modelYear,jdbcType=VARCHAR}, #{liter,jdbcType=VARCHAR}, #{gearType,jdbcType=VARCHAR}, 
+      #{dischargeStandard,jdbcType=VARCHAR}, #{seatNumber,jdbcType=VARCHAR}, #{shortName,jdbcType=VARCHAR}, 
+      #{minGreYear,jdbcType=VARCHAR}, #{maxGerYear,jdbcType=VARCHAR}, #{pictureUrl,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=CHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.car.CarModel" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into car_model
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        SID,
+      </if>
+      <if test="modelName != null" >
+        MODEL_NAME,
+      </if>
+      <if test="modelPrice != null" >
+        MODEL_PRICE,
+      </if>
+      <if test="modelYear != null" >
+        MODEL_YEAR,
+      </if>
+      <if test="liter != null" >
+        LITER,
+      </if>
+      <if test="gearType != null" >
+        GEAR_TYPE,
+      </if>
+      <if test="dischargeStandard != null" >
+        DISCHARGE_STANDARD,
+      </if>
+      <if test="seatNumber != null" >
+        SEAT_NUMBER,
+      </if>
+      <if test="shortName != null" >
+        SHORT_NAME,
+      </if>
+      <if test="minGreYear != null" >
+        MIN_GRE_YEAR,
+      </if>
+      <if test="maxGerYear != null" >
+        MAX_GER_YEAR,
+      </if>
+      <if test="pictureUrl != null" >
+        PICTURE_URL,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sid != null" >
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="modelName != null" >
+        #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPrice != null" >
+        #{modelPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="modelYear != null" >
+        #{modelYear,jdbcType=VARCHAR},
+      </if>
+      <if test="liter != null" >
+        #{liter,jdbcType=VARCHAR},
+      </if>
+      <if test="gearType != null" >
+        #{gearType,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargeStandard != null" >
+        #{dischargeStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNumber != null" >
+        #{seatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null" >
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="minGreYear != null" >
+        #{minGreYear,jdbcType=VARCHAR},
+      </if>
+      <if test="maxGerYear != null" >
+        #{maxGerYear,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null" >
+        #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.car.CarModelExample" resultType="java.lang.Integer" >
+    select count(*) from car_model
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update car_model
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.sid != null" >
+        SID = #{record.sid,jdbcType=BIGINT},
+      </if>
+      <if test="record.modelName != null" >
+        MODEL_NAME = #{record.modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modelPrice != null" >
+        MODEL_PRICE = #{record.modelPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modelYear != null" >
+        MODEL_YEAR = #{record.modelYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liter != null" >
+        LITER = #{record.liter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gearType != null" >
+        GEAR_TYPE = #{record.gearType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dischargeStandard != null" >
+        DISCHARGE_STANDARD = #{record.dischargeStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seatNumber != null" >
+        SEAT_NUMBER = #{record.seatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shortName != null" >
+        SHORT_NAME = #{record.shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.minGreYear != null" >
+        MIN_GRE_YEAR = #{record.minGreYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxGerYear != null" >
+        MAX_GER_YEAR = #{record.maxGerYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pictureUrl != null" >
+        PICTURE_URL = #{record.pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=CHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update car_model
+    set ID = #{record.id,jdbcType=BIGINT},
+      SID = #{record.sid,jdbcType=BIGINT},
+      MODEL_NAME = #{record.modelName,jdbcType=VARCHAR},
+      MODEL_PRICE = #{record.modelPrice,jdbcType=VARCHAR},
+      MODEL_YEAR = #{record.modelYear,jdbcType=VARCHAR},
+      LITER = #{record.liter,jdbcType=VARCHAR},
+      GEAR_TYPE = #{record.gearType,jdbcType=VARCHAR},
+      DISCHARGE_STANDARD = #{record.dischargeStandard,jdbcType=VARCHAR},
+      SEAT_NUMBER = #{record.seatNumber,jdbcType=VARCHAR},
+      SHORT_NAME = #{record.shortName,jdbcType=VARCHAR},
+      MIN_GRE_YEAR = #{record.minGreYear,jdbcType=VARCHAR},
+      MAX_GER_YEAR = #{record.maxGerYear,jdbcType=VARCHAR},
+      PICTURE_URL = #{record.pictureUrl,jdbcType=VARCHAR},
+      IS_DEL = #{record.isDel,jdbcType=CHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.car.CarModel" >
+    update car_model
+    <set >
+      <if test="sid != null" >
+        SID = #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="modelName != null" >
+        MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      </if>
+      <if test="modelPrice != null" >
+        MODEL_PRICE = #{modelPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="modelYear != null" >
+        MODEL_YEAR = #{modelYear,jdbcType=VARCHAR},
+      </if>
+      <if test="liter != null" >
+        LITER = #{liter,jdbcType=VARCHAR},
+      </if>
+      <if test="gearType != null" >
+        GEAR_TYPE = #{gearType,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargeStandard != null" >
+        DISCHARGE_STANDARD = #{dischargeStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNumber != null" >
+        SEAT_NUMBER = #{seatNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null" >
+        SHORT_NAME = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="minGreYear != null" >
+        MIN_GRE_YEAR = #{minGreYear,jdbcType=VARCHAR},
+      </if>
+      <if test="maxGerYear != null" >
+        MAX_GER_YEAR = #{maxGerYear,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null" >
+        PICTURE_URL = #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.car.CarModel" >
+    update car_model
+    set SID = #{sid,jdbcType=BIGINT},
+      MODEL_NAME = #{modelName,jdbcType=VARCHAR},
+      MODEL_PRICE = #{modelPrice,jdbcType=VARCHAR},
+      MODEL_YEAR = #{modelYear,jdbcType=VARCHAR},
+      LITER = #{liter,jdbcType=VARCHAR},
+      GEAR_TYPE = #{gearType,jdbcType=VARCHAR},
+      DISCHARGE_STANDARD = #{dischargeStandard,jdbcType=VARCHAR},
+      SEAT_NUMBER = #{seatNumber,jdbcType=VARCHAR},
+      SHORT_NAME = #{shortName,jdbcType=VARCHAR},
+      MIN_GRE_YEAR = #{minGreYear,jdbcType=VARCHAR},
+      MAX_GER_YEAR = #{maxGerYear,jdbcType=VARCHAR},
+      PICTURE_URL = #{pictureUrl,jdbcType=VARCHAR},
+      IS_DEL = #{isDel,jdbcType=CHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

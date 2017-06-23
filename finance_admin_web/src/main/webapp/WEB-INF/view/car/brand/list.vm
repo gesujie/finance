@@ -1,0 +1,88 @@
+#setCss()##设置自定义css
+#breadcrumbs("汽车信息管理,汽车品牌管理")##设置导航栏
+<div class="miain-div-context">
+	<div class="search-widget-box">
+        <div class="form-inline" role="form">
+            <table class="search-table">
+                <tr>
+                    <td>
+						<div class="input-group">
+                    		<span class="input-group-addon">
+                    			名称
+                    		</span>
+                    		<input type="text" name="brandName" id="brandName"/>
+						</div>
+					</td>
+                    
+					<td>
+						<div class="input-group">
+                    		<span class="input-group-addon">
+                    			首字母
+                    		</span>
+                    		<input type="text" name="initials" id="initials"/>
+						</div>
+					</td>
+                    
+                    <td>
+                        <div class="input-group">
+                    		<span class="input-group-addon">
+                    			类型
+                    		</span>
+                            <select name="type" id="type" style="height: 28px;">
+                                <option value="-1">请选择</option>
+                                <option value="0">自主品牌</option>
+                                <option value="1">非自主品牌</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <a id="serarch"  class="btn btn-success btn-search btn-sm" href="#"><i class="icon-search"></i>查询</a>
+                        <a id="reset"  class="btn  btn-grey btn-reset btn-sm" href="#"><i class="icon-repeat"></i>重置</a>
+					</td>
+				</tr>		
+            </table>
+        </div>
+    </div>
+    
+	<div id="toolbar">
+        <div class="btn-group lighter">
+			<button class="btn btn-sm disabled btn-danger">操作列表</button>&nbsp;
+            <button type="button" class="btn btn-info btn-sm btn-save">
+				<i class="icon-save align-top bigger-110" ></i>添加
+			</button>
+            <button type="button" class="btn btn-info btn-sm btn-edit">
+				<i class="icon-edit align-top bigger-110"></i>修改
+			</button>
+            <button type="button" class="btn btn-info btn-sm btn-delete">
+				<i class="icon-trash align-top  bigger-110"></i>删除
+			</button>
+        </div>
+    </div>
+   <table id="tb-datagrid" data-toggle="table" class="datagrid-table" data-url="$!finance_admin_path/admin/car/brand/getData.html"
+		  data-height="740"##	定义表格的高度。
+		  data-method="get"##	此处必须是GET，服务器数据的请求方式 'get' or 'post'
+		  data-side-pagination="server"##服务器分页
+          data-pagination="true"##显示分页
+		  data-page-size="20"##分页条数
+		  data-striped="true"##	设置为 true 会有隔行变色效果
+		  data-id-field="id"##	指定主键列
+		  data-click-to-select="true" ##单击选中checkbox
+		  data-query-params="queryParams"##请求服务器数据时参数
+		  data-toolbar="#toolbar"##
+		  >
+        <thead>
+            <tr>
+				<th data-field="state" data-checkbox="true"></th>
+                <th data-field="index" data-formatter="indexFormatter" data-width="10px">序号</th>
+                <th data-field="brandName">名称</th>
+				<th data-field="initials">首字母</th>
+				<th data-field="type" data-formatter="typeFormatter">类型</th>
+                <th data-field="small" data-formatter="smallFormatter">小图</th>
+				<th data-field="createdDate" data-width="130px" data-formatter="daterFormatter">添加时间</th>
+				<th data-field="updatedDate" data-width="130px" data-formatter="daterFormatter">更新时间</th>
+            </tr>
+        </thead>
+   </table>
+</div>
+##设置自定义js
+#setJs("/jibinfoFinance/manager/js/finance/car/brand.js,/common/webuploader/webuploader.min.js")

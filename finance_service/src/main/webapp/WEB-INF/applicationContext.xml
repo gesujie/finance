@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.jibinfo"/>
+    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
+
+    <bean id="propertyConfigurer"
+          class="com.jibinfo.framework.runtime.PropertyPlaceholderResolver">
+        <property name="absolutes">
+            <list>
+            	<value>/data0/etc/common/jdbc.properties</value>
+            	<value>/data0/etc/common/redis.properties</value>
+            	<value>/data0/etc/common/common.properties</value>
+            	<value>/data0/etc/finance/system.properties</value>
+            </list>
+        </property>
+		<property name="localOverride" value="true"/>
+    	<property name="ignoreResourceNotFound" value="true"/>
+    	<property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+
+    <import resource="classpath*:spring/springContext_*.xml"/>
+
+</beans>

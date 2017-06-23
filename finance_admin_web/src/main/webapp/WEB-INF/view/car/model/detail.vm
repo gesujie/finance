@@ -1,0 +1,67 @@
+## 添加页面
+#set( $images_path = ${config.getProperty("urlPath","images_path")})
+<form class="model-save-update-form" role="form" method="POST">
+    <table border="1" cellspacing="0" width="95%">
+        <tr>
+            <td><font style="font-weight:bold;">名称</font></td>
+            <td>$!model.modelName</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">价格</font></td>
+            <td>$!model.modelPrice</td>
+        </tr>
+         <tr>
+            <td><font style="font-weight:bold;">年款</font></td>
+            <td>$!model.modelYear</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">排量</font></td>
+            <td>$!model.liter</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">变速箱</font></td>
+            <td>$!model.gearType</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">排放标准</font></td>
+            <td>$!model.dischargeStandard</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">座位数</font></td>
+            <td>$!model.seatNumber</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">简称</font></td>
+            <td>$!model.shortName</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">最小上牌年份</font></td>
+            <td> $!model.minGreYear</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">最大上牌年份</font></td>
+            <td>$!model.maxGerYear</td>
+        </tr>
+        <tr>
+            <td><font style="font-weight:bold;">图片</font></td>
+            <td>
+                #if($!model.pictureUrl && $!model.pictureUrl !="")
+                <img width="200px" height="100px"  src="$!images_path$!model.pictureUrl" style="float: left"/>
+                #end
+            </td>
+        </tr>
+    </table>
+    
+</form>
+    
+<style>
+    .detail-dialog 
+    .modal{
+        overflow:hidden
+    }
+    .modal-body{
+        height:380px;
+        max-height:380px;
+        overflow-y:auto;
+    }
+</style>

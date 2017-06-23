@@ -1,0 +1,19 @@
+<script type="text/javascript">
+	var images_path = "$images_path";
+	var static_path  = "$static_path";
+	var file_path  = "$file_path";
+	var gateway_path  = "$gateway_path";
+	var mobile_path  = "$mobile_path";
+	var mobile_finance_path  = "$mobile_finance_path";
+	var wechat_path  = "$wechat_path";
+	var web_path  = "$web_path";
+	var account_path  = "$account_path";
+	var shop_path  = "$shop_path";
+	var item_path  = "$item_path";
+	var order_path  = "$order_path";
+	var sso_path  = "$sso_path";
+	var trade_path  = "$trade_path";
+	var main_path  = "$main_path";
+	var logout_path  = "$logout_path";
+	var news_path = "$news_path";
+</script>

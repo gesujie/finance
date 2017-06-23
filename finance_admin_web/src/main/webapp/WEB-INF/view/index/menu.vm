@@ -1,0 +1,62 @@
+#macro(menu_list $menuList)
+	##默认的控制台的菜单
+     <li class="active fisrt-level-menu">
+		<a href="index.html">
+			<i class="icon-dashboard"></i>
+			<span class="menu-text"> 控制台 </span>
+		</a>
+	</li>
+	#if($!menuList)
+		#foreach($!menu1 in $!menuList)
+		##判断是否有子节点，有子节点的显示情况
+			#if($!menu1.hasChildren)
+            <li class="fisrt-level-menu">
+                <a href="#" class="dropdown-toggle">
+                    <i class="$!menu1.classIcon"></i>
+                    <span class="menu-text"> $!menu1.name</span>
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+                <ul class="submenu">
+					#foreach($!menu2 in $!menu1.childMenu)
+						#if($!menu2.hasChildren)
+                            <li class="second-level-menu">
+                                <a href="#" class="dropdown-toggle">
+                                    <i class="icon-double-angle-right"></i>
+									$!menu2.name
+                                    <b class="arrow icon-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+									#foreach($!menu3 in $!menu2.childMenu)
+                                        <li class="third-level-menu">
+                                            <a href="javacript:void(0);" onclick="updateIframeUrl('$!menu3.baseUrl$!menu3.moduleUrl');">
+                                                <i class="icon-double-angle-right"></i>
+												$!menu3.name
+                                            </a>
+                                        </li>
+									#end
+                                </ul>
+                            </li>
+						#else
+                            <li class="second-level-menu">
+                                <a href="javacript:void(0);" onclick="updateIframeUrl('$!menu2.baseUrl$!menu2.moduleUrl');">
+                                    <i class="icon-double-angle-right"></i>
+									$!menu2.name
+                                </a>
+                            </li>
+						#end
+
+					#end
+                </ul>
+            </li>
+			##没有子节点的显示情况
+			#else
+            <li class="fisrt-level-menu">
+                <a href="javacript:void(0);" onclick="updateIframeUrl('$!menu1.baseUrl$!menu1.moduleUrl');">
+                    <i class="$!menu1.classIcon"></i>
+                    <span class="menu-text"> $!menu1.name</span>
+                </a>
+            </li>
+			#end
+		#end
+	#end
+#end

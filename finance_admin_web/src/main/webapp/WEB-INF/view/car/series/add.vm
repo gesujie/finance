@@ -1,0 +1,14 @@
+## 添加页面
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">车系名称</span>
+		<input style="width:355px" type="text" name="seriesName" id="seriesName" required/>
+	</div>
+    
+    <div class="space-4"></div>
+    
+    <div class="input-group">
+        <span class="input-group-addon input-group-addon-80">生产类型</span>
+        <input style="width:355px" type="text" name="makerType" id="makerType" required/>
+    </div
+</form>

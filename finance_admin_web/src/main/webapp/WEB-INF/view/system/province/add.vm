@@ -1,0 +1,31 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group" style="display: none;">
+		<span class="input-group-addon input-group-addon-80">
+			编码
+		</span>
+		<input style="width:355px" type="text" name="code" class="required" value="$code"/>
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			名称
+		</span>
+		<input style="width:355px" type="text" name="name" class="required"/>
+	</div>
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			简称
+		</span>
+        <input style="width:355px" type="text" name="shortName" />
+    </div>
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			排序
+		</span>
+        <input style="width:355px" type="text" name="sort" />
+    </div>
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/system/user_upload.js"></script>

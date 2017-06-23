@@ -1,0 +1,111 @@
+#set($header_params={"css":"jibinfoFinance/frontend/css/jibinfo.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+
+##主内容开始
+<div class="head-container">
+	<div class="container">
+		<div class="header clearfix">
+			<div class="logo left">
+				<a href="#"><img src="$static_path/jibinfoFinance/frontend/images/logo.png" alt="坚卓-金融车" title="坚卓-金融车" /></a>
+			</div>
+			<div class="top-icons right">
+				<ul class="top-right clearfix">
+					<li class="top-tel">
+						<p class="icon">&nbsp;</p>
+						<p class="label">贷款服务热线 : 400-055-6666/400-050-6666</p>
+					</li>
+					<li>
+						<p class="icon">&nbsp;</p>
+						<p class="label">APP下载</p>
+					</li>
+					<li class="top-account">
+						<p class="icon">&nbsp;</p>
+						<p class="label"><a href="#">登录</a> | <a href="#">注册</a></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+##导航栏
+<div class="container">
+	<ul class="menu-list clearfix F16">
+		<li>
+			<a class="active" href="#">首页</a>
+		</li>
+		<li>
+			<a href="#">贷款车型</a>
+		</li>
+		<li>
+			<a href="#">汽车经销商</a>
+		</li>
+		<li>
+			<a href="#">算月供</a>
+		</li>
+		<li>
+			<a href="#">贷款指南</a>
+		</li>
+		<li>
+			<a href="#">关于我们</a>
+		</li>
+		<li>
+			<a href="#">我的贷款</a>
+		</li>
+	</ul>
+</div>
+
+##轮播图
+<div class="index-sliders flexslider">
+	<ul class="slides clearfix">
+		<li>
+			<a href="#">
+				<p class="slider-right first">&nbsp;</p>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<p class="slider-right second">&nbsp;</p>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<p class="slider-right third">&nbsp;</p>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<p class="slider-right fourth">&nbsp;</p>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<p class="slider-right last">&nbsp;</p>
+			</a>
+		</li>
+	</ul>
+	
+	##极速申请
+	<div class="slider-content hidden">
+		<div class="opacity_background"></div>
+		<div class="silder_over_apply">
+			<p class="F24 cWhite">车贷在线<span class="cOrange">极速申请</span></p>
+			<p class="cWhite Mar_b_20 Mar_t_20">申请即可获10万，首付30%，办理只需身份证</p>
+			<div class="car_xiang_dai index">
+				<a href="#">贷款申请</a>
+			</div>
+			<ul class="cWhite clearfix">
+				<li>最高额50万</li>
+				<li>2小时极速审批</li>
+				<li>最少只需身份证</li>
+				<li>月供可调</li>
+				<li>分期赚月供</li>
+				<li>多品牌全车型</li>
+			</ul>
+		</div>
+	</div>
+</div>
+##主内容结束
+
+#set($footerParams={"js":"jibinfoFinance/frontend/scripts/index.js"})
+#frontend_footer($footerParams)

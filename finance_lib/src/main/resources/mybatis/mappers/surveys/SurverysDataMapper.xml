@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.surveys.SurverysDataMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.surveys.SurverysData" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="PAR_OPTION_ID" property="parOptionId" jdbcType="BIGINT" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="SCORE" property="score" jdbcType="INTEGER" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="DATA_TYPE" property="dataType" jdbcType="VARCHAR" />
+    <result column="OPTIONDESC" property="optiondesc" jdbcType="VARCHAR" />
+    <result column="OPTIONNAME" property="optionname" jdbcType="VARCHAR" />
+    <result column="OPTIONNO" property="optionno" jdbcType="INTEGER" />
+    <result column="ORDERNO" property="orderno" jdbcType="INTEGER" />
+    <result column="SITEMCODE" property="sitemcode" jdbcType="VARCHAR" />
+    <result column="ACTION" property="action" jdbcType="VARCHAR" />
+    <result column="IS_DEL" property="isDel" jdbcType="CHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, PAR_OPTION_ID, CODE, SCORE, URL, DATA_TYPE, OPTIONDESC, OPTIONNAME, OPTIONNO, 
+    ORDERNO, SITEMCODE, ACTION, IS_DEL, CREATED_DATE, UPDATED_DATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.surveys.SurverysDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from surverys_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="paginator != null and paginator.offset != null and paginator.itemsPerPage != null" >
+      LIMIT #{paginator.offset,jdbcType=INTEGER},#{paginator.itemsPerPage,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from surverys_data
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from surverys_data
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.surveys.SurverysDataExample" >
+    delete from surverys_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.surveys.SurverysData" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into surverys_data (PAR_OPTION_ID, CODE, SCORE, 
+      URL, DATA_TYPE, OPTIONDESC, 
+      OPTIONNAME, OPTIONNO, ORDERNO, 
+      SITEMCODE, ACTION, IS_DEL, 
+      CREATED_DATE, UPDATED_DATE)
+    values (#{parOptionId,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
+      #{url,jdbcType=VARCHAR}, #{dataType,jdbcType=VARCHAR}, #{optiondesc,jdbcType=VARCHAR}, 
+      #{optionname,jdbcType=VARCHAR}, #{optionno,jdbcType=INTEGER}, #{orderno,jdbcType=INTEGER}, 
+      #{sitemcode,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{isDel,jdbcType=CHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.surveys.SurverysData" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into surverys_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="parOptionId != null" >
+        PAR_OPTION_ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="score != null" >
+        SCORE,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="dataType != null" >
+        DATA_TYPE,
+      </if>
+      <if test="optiondesc != null" >
+        OPTIONDESC,
+      </if>
+      <if test="optionname != null" >
+        OPTIONNAME,
+      </if>
+      <if test="optionno != null" >
+        OPTIONNO,
+      </if>
+      <if test="orderno != null" >
+        ORDERNO,
+      </if>
+      <if test="sitemcode != null" >
+        SITEMCODE,
+      </if>
+      <if test="action != null" >
+        ACTION,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="parOptionId != null" >
+        #{parOptionId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null" >
+        #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="optiondesc != null" >
+        #{optiondesc,jdbcType=VARCHAR},
+      </if>
+      <if test="optionname != null" >
+        #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="optionno != null" >
+        #{optionno,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=INTEGER},
+      </if>
+      <if test="sitemcode != null" >
+        #{sitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null" >
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.surveys.SurverysDataExample" resultType="java.lang.Integer" >
+    select count(*) from surverys_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update surverys_data
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.parOptionId != null" >
+        PAR_OPTION_ID = #{record.parOptionId,jdbcType=BIGINT},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null" >
+        SCORE = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.url != null" >
+        URL = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataType != null" >
+        DATA_TYPE = #{record.dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optiondesc != null" >
+        OPTIONDESC = #{record.optiondesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optionname != null" >
+        OPTIONNAME = #{record.optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.optionno != null" >
+        OPTIONNO = #{record.optionno,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderno != null" >
+        ORDERNO = #{record.orderno,jdbcType=INTEGER},
+      </if>
+      <if test="record.sitemcode != null" >
+        SITEMCODE = #{record.sitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.action != null" >
+        ACTION = #{record.action,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=CHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update surverys_data
+    set ID = #{record.id,jdbcType=BIGINT},
+      PAR_OPTION_ID = #{record.parOptionId,jdbcType=BIGINT},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      SCORE = #{record.score,jdbcType=INTEGER},
+      URL = #{record.url,jdbcType=VARCHAR},
+      DATA_TYPE = #{record.dataType,jdbcType=VARCHAR},
+      OPTIONDESC = #{record.optiondesc,jdbcType=VARCHAR},
+      OPTIONNAME = #{record.optionname,jdbcType=VARCHAR},
+      OPTIONNO = #{record.optionno,jdbcType=INTEGER},
+      ORDERNO = #{record.orderno,jdbcType=INTEGER},
+      SITEMCODE = #{record.sitemcode,jdbcType=VARCHAR},
+      ACTION = #{record.action,jdbcType=VARCHAR},
+      IS_DEL = #{record.isDel,jdbcType=CHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.surveys.SurverysData" >
+    update surverys_data
+    <set >
+      <if test="parOptionId != null" >
+        PAR_OPTION_ID = #{parOptionId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        SCORE = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="dataType != null" >
+        DATA_TYPE = #{dataType,jdbcType=VARCHAR},
+      </if>
+      <if test="optiondesc != null" >
+        OPTIONDESC = #{optiondesc,jdbcType=VARCHAR},
+      </if>
+      <if test="optionname != null" >
+        OPTIONNAME = #{optionname,jdbcType=VARCHAR},
+      </if>
+      <if test="optionno != null" >
+        OPTIONNO = #{optionno,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null" >
+        ORDERNO = #{orderno,jdbcType=INTEGER},
+      </if>
+      <if test="sitemcode != null" >
+        SITEMCODE = #{sitemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null" >
+        ACTION = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.surveys.SurverysData" >
+    update surverys_data
+    set PAR_OPTION_ID = #{parOptionId,jdbcType=BIGINT},
+      CODE = #{code,jdbcType=VARCHAR},
+      SCORE = #{score,jdbcType=INTEGER},
+      URL = #{url,jdbcType=VARCHAR},
+      DATA_TYPE = #{dataType,jdbcType=VARCHAR},
+      OPTIONDESC = #{optiondesc,jdbcType=VARCHAR},
+      OPTIONNAME = #{optionname,jdbcType=VARCHAR},
+      OPTIONNO = #{optionno,jdbcType=INTEGER},
+      ORDERNO = #{orderno,jdbcType=INTEGER},
+      SITEMCODE = #{sitemcode,jdbcType=VARCHAR},
+      ACTION = #{action,jdbcType=VARCHAR},
+      IS_DEL = #{isDel,jdbcType=CHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

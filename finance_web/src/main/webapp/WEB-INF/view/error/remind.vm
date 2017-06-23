@@ -1,0 +1,30 @@
+﻿#set($header_params={"title":"yysports","css":"yysports/common/css/member.css,yysports/common/css/flow.css","Keywords":"胜道体育官方网站","Description":"胜道体育官方网站","title":"胜道体育官方网站"})
+#frontend_header($header_params)
+
+##主内容开始
+<div class="contain">
+	<div class="noProduct bg_White">
+		<div class="remind_to_update_top">
+			<div class="remind_update_content">
+				<div class="left">
+					<img src="$static_path/yysports/common/img/alert.png" alt="error" />
+				</div>
+				<div class="left remind_right_content">
+					<p class="F28 Mar_b_5 cRed">抱歉！您正在使用的浏览器版本过低</p>
+					<p class="F16 Mar_t_5">为确保信息的安全和展现，建议您对浏览器进行升级，以便获得更好的购物体验。</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="remind_to_update_bottom">
+			<img src="$static_path/yysports/common/img/browser.png" alt="error" />
+			<p class="F16 Mar_t_5">我们列出了一些受欢迎</p>
+			<p class="F28 Mar_t_5 cblack">浏览器供您升级</p>
+		</div>
+	</div>
+</div>
+
+##主内容结束
+
+#set($header_params={"js" : "yysports/error/js/error.js"})
+#frontend_footer($header_params)

@@ -1,0 +1,89 @@
+#* 头部 内容*#
+#macro(frontend_header $params)
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" name="viewport">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta name="Keywords" content="$params.Keywords"/>
+		<meta name="Description" content="$params.Description"/>
+		<title>$params.title</title>
+		
+		#parse("template/setEnv.vm")
+		<link rel='stylesheet' type='text/css' href='$static_path/jibinfoFinance/mobile/css/sm.css'/>
+		<link rel='stylesheet' type='text/css' href='$static_path/jibinfoFinance/mobile/css/general.css'/>
+		<link rel='stylesheet' type='text/css' href='$static_path/jibinfoFinance/mobile/css/rem.css'/>
+		
+		#if ($!params.css)
+	        #foreach($css in $!params.css.split(","))
+	            <link rel='stylesheet' type='text/css' href='$static_path/$css' />
+	        #end
+		#end
+		
+	</head>
+	<body>
+	#if($stringUtil.isNotEmptyVo($authorizationUtils.loadAuthorization().id))
+	   <input type="hidden" id="user_id" value="$authorizationUtils.loadAuthorization().id" />
+	#end
+	
+#end
+
+#* 尾部 内容*#
+
+#macro(frontend_footer $params)
+	#parse("template/setEnvJs.vm")
+	<script type="text/javascript" src="$static_path/common/requireJs-mobile/require.js"></script>
+	#if ($!params && $!params.js)
+	    <script type="text/javascript">
+			require.config({
+				map: [],
+				paths:{
+					zepto: '$static_path/common/requireJs-mobile/zepto',
+					general: '$static_path/jibinfoFinance/mobile/scripts/general'
+				}
+			});
+			requirejs(['$static_path/$!params.js','general'],function(main, general){
+				main.init();
+				general.init();
+			});
+		</script>
+	#end
+	</body>
+	</html>
+#end
+
+
+#macro(jq_frontend_footer $params)
+	#parse("template/setEnvJs.vm")
+	<script type="text/javascript" src="$static_path/common/requireJs-mobile/require.js"></script>
+	#if ($!params && $!params.js)
+	    <script type="text/javascript">
+			require.config({
+				map: [],
+				paths:{
+					jquery: '$static_path/common/requireJs-mobile/jquery-1.12.4.min'		
+				}
+			});
+			requirejs(['$static_path/$!params.js'],function(main, general){
+				main.init();
+			});
+		</script>
+	#end
+	</body>
+	</html>
+#end
+
+#macro(no_frontend_footer $params)
+	#parse("template/setEnvJs.vm")
+	<script type="text/javascript" src="$static_path/common/requireJs-mobile/zepto.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=dX9eoi2okjHSrC18O2eTlfmsWpjCPbga	"></script>
+	#if ($!params && $!params.js)
+	    #foreach( $js in $!params.js.split(","))
+	        <script type="text/javascript" src="$static_path/$js"></script>
+	    #end
+	#end
+	</body>
+	</html>
+#end

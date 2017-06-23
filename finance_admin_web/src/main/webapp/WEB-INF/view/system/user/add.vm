@@ -1,0 +1,67 @@
+## 添加页面
+#set( $static_path = ${config.getProperty("urlPath","static_path")})
+<form class="save-update-form" role="form" method="POST">
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			用户名
+		</span>
+		<input style="width:355px" type="text" name="userName" class="required"/>
+	</div>
+
+	<div class="space-4"></div>
+    <div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			姓名
+		</span>
+        <input style="width:355px" type="text" name="name" />
+    </div>
+
+    <div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			性别
+		</span>
+        <select class="form-control"  name="sex" style="width:355px;height:30px;">
+			<option value='男' selected>男</option>
+            <option value='女'>女</option>
+		</select>
+	</div>
+
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			昵称
+		</span>
+		<input style="width:355px" type="text" name="nickname" />
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			邮箱
+		</span>
+		<input style="width:355px" type="text" name="email" class="required email"/>
+	</div>
+	
+	<div class="space-4"></div>
+	<div class="input-group">
+		<span class="input-group-addon input-group-addon-80">
+			手机号
+		</span>
+		<input style="width:355px" type="text" name="mobile" class="required digits"/>
+	</div>
+    <div class="space-4"></div>
+    <div class="input-group" id="uploader-demo">
+		<span class="input-group-addon input-group-addon-80">
+			头像
+		</span>
+		<img id="avatarImg" width="200px" height="100px" style="float: left"/>
+       	<div style="float: left">
+            <input id="avatarUserIcon" type="hidden" name="userIcon" />
+            <div id="filePicker">选择图片</div>
+            <a id="deleteImg" style="cursor: pointer;display: none;">删除</a>
+		</div>
+    </div>
+
+</form>
+<script src="$!static_path/jibinfoFinance/manager/js/finance/system/user_upload.js"></script>

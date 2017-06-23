@@ -1,0 +1,35 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/laws.css,jibinfoFinance/mobile/css/mat_plugins.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">法律条款</h2>
+        </header>
+    </div>    
+	<div class="laws_policy_content">
+    	<p class="paragraph">
+    		<b class="title">法律声明</b>
+    	</p>
+    	<p>
+    		好车e贷提醒您：在使用好车e贷的各项服务前，请您务必仔细阅读并透彻理解本声明。您可以选择不使用好车e贷的服务，但如果您使用好车e贷服务的，您的使用行为将被视为对本声明全部内容的认可。
+    	</p>
+		<p class="paragraph">
+    		<b class="title">服务信息</b>
+    	</p>
+    	<p>
+    		好车e贷上的服务信息随时有可能发生变动，好车e贷对此不作特别通知。好车e贷将尽合理的商业努力，使网站内展示的服务信息尽可能准确、详尽、完整。
+    	</p>
+		<p class="paragraph">
+    		<b class="title">知识产权声明</b>
+    	</p>
+    	<p>
+    		好车e贷提供的网络服务中包含的全部信息（包括但不限于任何文本、图片、音频、视频、数据、标识、数据编辑、商标等）以及为提供服务而使用的任何软件等均受知识产权和其他相关法律保护。用户仅可以为个人和非商业目的使用好车e贷的网络服务。未经好车e贷的事先书面同意，用户不得以任何方式复制、转发或以其他方式使用好车e贷提供的网络服务中包含的任何信息。否则，好车e贷将依法追究法律责任。
+    	</p>
+		<p>好车e贷的转载出于传递更多信息之目的，并不意味好车e贷（包括好车e贷关联企业）赞同其观点或证实其内容的真实性。好车e贷提供的第三方内容或通往第三方网站的链接，均由第三方自行发布，用户应对上述第三方内容或者链接自行加以判断，并承担因使用而引起的所有风险。好车e贷不对这些第三方的内容或者链接做出任何保证或承担任何责任。</p>
+		<p>任何单位或个人认为好车e贷的内容可能涉嫌侵犯其合法权益，应该及时向好车e贷提出书面权利通知，并提供身份证明、权属证明、具体链接（URL）及详细侵权情况证明。好车e贷在收到上述法律文件并经确认后，将会依法尽快移除相关涉嫌侵权的内容。</p>
+	</div>
+</div>
+
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/loanApply.js"})
+#frontend_footer($footerParams)

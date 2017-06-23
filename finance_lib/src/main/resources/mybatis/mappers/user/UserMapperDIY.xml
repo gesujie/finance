@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.user.UserMapper" >
+  <resultMap id="DiyResultMap" type="com.jibinfo.finance.dto.UserChartDTO" >
+    <result column="CREATED_DATE" property="date" jdbcType="VARCHAR" />
+    <result column="COUNTS" property="count" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="groupByCreateDate" resultMap="DiyResultMap">
+    select date_format(CREATED_DATE,'%Y-%m-%d') AS CREATED_DATE ,COUNT(1) AS COUNTS FROM user WHERE 1=1
+    and CREATED_DATE BETWEEN #{0} AND #{1}
+    group by CREATED_DATE
+    ORDER BY CREATED_DATE
+  </select>
+
+</mapper>

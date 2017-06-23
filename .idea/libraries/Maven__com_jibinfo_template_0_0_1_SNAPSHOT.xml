@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.jibinfo:template:0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jibinfo/template/0.0.1-SNAPSHOT/template-0.0.1-20160912.001550-654.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jibinfo/template/0.0.1-SNAPSHOT/template-0.0.1-20160912.001550-654-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/jibinfo/template/0.0.1-SNAPSHOT/template-0.0.1-20160912.001550-654-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

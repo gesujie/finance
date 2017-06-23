@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jibinfo.finance.mapper.system.SystemWebsiteMapper" >
+  <resultMap id="BaseResultMap" type="com.jibinfo.finance.entity.system.SystemWebsite" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="LOGO" property="logo" jdbcType="VARCHAR" />
+    <result column="MOBILE_LOGO" property="mobileLogo" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SYNOPSES" property="synopses" jdbcType="VARCHAR" />
+    <result column="ICP" property="icp" jdbcType="VARCHAR" />
+    <result column="COPYRIGHT" property="copyright" jdbcType="VARCHAR" />
+    <result column="DOMAIN" property="domain" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="KEYWORDS" property="keywords" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="IS_DEL" property="isDel" jdbcType="VARCHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, LOGO, MOBILE_LOGO, NAME, SYNOPSES, ICP, COPYRIGHT, DOMAIN, TITLE, KEYWORDS, DESCRIPTION, 
+    TEL, IS_DEL, CREATED_DATE, UPDATED_DATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jibinfo.finance.entity.system.SystemWebsiteExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from system_website
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from system_website
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from system_website
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jibinfo.finance.entity.system.SystemWebsiteExample" >
+    delete from system_website
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jibinfo.finance.entity.system.SystemWebsite" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into system_website (LOGO, MOBILE_LOGO, NAME, 
+      SYNOPSES, ICP, COPYRIGHT, 
+      DOMAIN, TITLE, KEYWORDS, 
+      DESCRIPTION, TEL, IS_DEL, 
+      CREATED_DATE, UPDATED_DATE)
+    values (#{logo,jdbcType=VARCHAR}, #{mobileLogo,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{synopses,jdbcType=VARCHAR}, #{icp,jdbcType=VARCHAR}, #{copyright,jdbcType=VARCHAR}, 
+      #{domain,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{isDel,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{updatedDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jibinfo.finance.entity.system.SystemWebsite" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into system_website
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logo != null" >
+        LOGO,
+      </if>
+      <if test="mobileLogo != null" >
+        MOBILE_LOGO,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="synopses != null" >
+        SYNOPSES,
+      </if>
+      <if test="icp != null" >
+        ICP,
+      </if>
+      <if test="copyright != null" >
+        COPYRIGHT,
+      </if>
+      <if test="domain != null" >
+        DOMAIN,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="keywords != null" >
+        KEYWORDS,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE,
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileLogo != null" >
+        #{mobileLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="synopses != null" >
+        #{synopses,jdbcType=VARCHAR},
+      </if>
+      <if test="icp != null" >
+        #{icp,jdbcType=VARCHAR},
+      </if>
+      <if test="copyright != null" >
+        #{copyright,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null" >
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jibinfo.finance.entity.system.SystemWebsiteExample" resultType="java.lang.Integer" >
+    select count(*) from system_website
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update system_website
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.logo != null" >
+        LOGO = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobileLogo != null" >
+        MOBILE_LOGO = #{record.mobileLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.synopses != null" >
+        SYNOPSES = #{record.synopses,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icp != null" >
+        ICP = #{record.icp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.copyright != null" >
+        COPYRIGHT = #{record.copyright,jdbcType=VARCHAR},
+      </if>
+      <if test="record.domain != null" >
+        DOMAIN = #{record.domain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keywords != null" >
+        KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        TEL = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        IS_DEL = #{record.isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdDate != null" >
+        CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedDate != null" >
+        UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update system_website
+    set ID = #{record.id,jdbcType=BIGINT},
+      LOGO = #{record.logo,jdbcType=VARCHAR},
+      MOBILE_LOGO = #{record.mobileLogo,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      SYNOPSES = #{record.synopses,jdbcType=VARCHAR},
+      ICP = #{record.icp,jdbcType=VARCHAR},
+      COPYRIGHT = #{record.copyright,jdbcType=VARCHAR},
+      DOMAIN = #{record.domain,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      TEL = #{record.tel,jdbcType=VARCHAR},
+      IS_DEL = #{record.isDel,jdbcType=VARCHAR},
+      CREATED_DATE = #{record.createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{record.updatedDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jibinfo.finance.entity.system.SystemWebsite" >
+    update system_website
+    <set >
+      <if test="logo != null" >
+        LOGO = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileLogo != null" >
+        MOBILE_LOGO = #{mobileLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="synopses != null" >
+        SYNOPSES = #{synopses,jdbcType=VARCHAR},
+      </if>
+      <if test="icp != null" >
+        ICP = #{icp,jdbcType=VARCHAR},
+      </if>
+      <if test="copyright != null" >
+        COPYRIGHT = #{copyright,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null" >
+        DOMAIN = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null" >
+        KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null" >
+        CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedDate != null" >
+        UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jibinfo.finance.entity.system.SystemWebsite" >
+    update system_website
+    set LOGO = #{logo,jdbcType=VARCHAR},
+      MOBILE_LOGO = #{mobileLogo,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SYNOPSES = #{synopses,jdbcType=VARCHAR},
+      ICP = #{icp,jdbcType=VARCHAR},
+      COPYRIGHT = #{copyright,jdbcType=VARCHAR},
+      DOMAIN = #{domain,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      IS_DEL = #{isDel,jdbcType=VARCHAR},
+      CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+      UPDATED_DATE = #{updatedDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

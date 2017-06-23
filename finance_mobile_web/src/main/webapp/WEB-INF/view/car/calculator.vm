@@ -1,0 +1,137 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/rangeslider.css,jibinfoFinance/mobile/css/zero_rate.css,jibinfoFinance/mobile/css/calc.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">月供计算</h2>
+        </header>
+    </div>    
+	<div class="list-block calc-content content">
+        <ul>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">品牌</div>
+                          <div class="item-input">
+							  <input type="text" id="topCarBrandName" placeholder="" readonly>
+                  		  </div>
+						  <span class="icon icon-right selectTopBrand"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">子品牌</div>
+                          <div class="item-input">
+							  <input type="text" id="carBrandName" placeholder="" readonly>
+                  		  </div>
+						  <span class="icon icon-right selectSubBrand"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">贷款方案</div>
+                          <div class="item-input">
+							  <input type="text" id="carActiveName" placeholder="" readonly>
+                  		  </div>
+						  <span class="icon icon-right selectCarActivity"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li class="areaLi" style="">
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">区域</div>
+                          <div class="item-input">
+							  <input type="text" id="area" placeholder="">
+                  		  </div>
+						  <span class="icon icon-right selectArea"></span>
+					  </div>
+				 </div>
+        	</li>
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">贷款金额（元）</div>
+                          <div class="item-input">
+							  <input type="number" id="carPrice" placeholder="">
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+			<li class="rangeInput">
+				 <div id="js-example-change-value">
+                    <input type="range" min="0" max="500000" step="1" value="" id="input-value" data-rangeslider>
+                    <output style="display: none;"></output>
+               </div>
+               <div>
+                    <div class="min-price">
+						<p>最低贷款额（元）</p>
+						<p class="red">00.00</p>
+					</div>
+                    <div class="max-price">
+						<p>最高贷款额（元）</p>
+						<p class="red">500,000.00</p>
+					</div>
+                   <div class="clear"></div>
+			   </div>
+			    <p class="red">贷款金额不得高于汽车净价的<span>75</span>%</p>
+			</li>
+			
+			<li>
+                 <div class="item-content">
+                     <div class="item-inner">
+                          <div class="item-title label">月供金额（元）</div>
+                          <div class="item-input">
+							  <input type="text" id="momey" placeholder="">
+                  		  </div>
+					  </div>
+				 </div>
+        	</li>
+		</ul>
+       <div class="calc-button-div"><button type="button" disabled="true" class="calc-button">计算</button></div>
+	</div>
+	<div class="silder-up mat-slidePannel" style="display: none;">
+		#parse("car/activityDialog.vm")
+	</div>
+    <section class="mat-right J_subBrand">
+        <div class="mat-slideWarp">
+            <div class="mat-slidePannel">
+                <!-- 后端刷入的内容 -->
+                <div class="header-base-color">
+                    <header class="bar bar-nav header-bg">
+                        <a href="javascript:;" class="back-to-prev-btn" id="subBrandDia"><span class="icon icon-left"></span></a>
+                        <h2 class="text-center bar-title">月供计算</h2>
+                    </header>
+                </div>
+                <aside class="m-aside">
+                    <ul class="J_subBrandList">
+						
+                    </ul>
+					<ul class="J_carActivityList">
+						 <li><a href="javascript:;">加载中请稍后……</a></li>
+                    </ul>
+					
+					<ul class="J_areaList">
+						 <li><a href="javascript:;">加载中请稍后……</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/template" id="subBrandTemplate">
+    <li data-id="{codes}" data-code="{parentId}"><a href="javascript:;">{names}</a></li>
+</script>
+<script type="text/template" id="carActivityTemplate">
+    <li data-loadCity="{loadCity}" data-code="{code}"><a href="javascript:;">{names}</a></li>
+</script>
+<script type="text/template" id="areaTemplate">
+    <li data-code="{code}"><a href="javascript:;">{names}</a></li>
+</script>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/calc.js"})
+#frontend_footer($footerParams)

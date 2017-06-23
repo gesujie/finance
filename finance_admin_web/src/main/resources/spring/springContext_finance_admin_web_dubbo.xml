@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <dubbo:application name="finance_admin_web" />
+
+    <dubbo:registry address="${zookeeper_dubbo}" check="false"/>
+    <dubbo:annotation package="com.jibinfo"/>
+    
+    
+	<import resource="./system_admin_web_dubbo.xml"/>
+
+    <import resource="./surveys_admin_web_dubbo.xml"/>
+
+    <import resource="./quartz_admin_web_dubbo.xml"/>
+    
+    <import resource="./car_admin_web_dubbo.xml"/>
+
+    <import resource="./user_admin_web_dubbo.xml"/>
+    
+    <import resource="./redis_admin_web_dubbo.xml"/>
+    
+    <import resource="./sms_admin_web_dubbo.xml"/>
+
+    <import resource="./email_admin_web_dubbo.xml"/>
+
+    <!--    初始化相关的数据用到的init method-->
+    <bean id="initListener" class="com.jibinfo.finance.listener.InitListener" init-method="init"></bean>
+
+</beans>

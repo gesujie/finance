@@ -1,0 +1,47 @@
+#set($header_params={"css":"jibinfoFinance/mobile/css/mat_plugins.css,jibinfoFinance/mobile/css/member_center.css","Keywords":"坚卓-金融车","Description":"坚卓-金融车","title":"坚卓-金融车"})
+#frontend_header($header_params)
+<div class="page">
+	<div class="header-base-color">
+        <header class="bar bar-nav header-bg">
+            <a href="javascript:history.back();" class="back-to-prev-btn step"><span class="icon icon-left"></span></a>
+			<a href="javascript:;" class="back-to-prev-btn pre-step" style="display: none;"><span class="icon icon-left"></span></a>
+            <h2 class="text-center bar-title">修改手机账号</h2>
+        </header>
+    </div>    
+	<div class="center-content content">
+        <div class="user-profile-header clearfix profile-top">
+            <div class="user-img-block text-center">
+                <img src="$static_path/jibinfoFinance/mobile/images/user.png" alt="#" class="center-block img-responsive user-img" style="height: 65px; width: 65px;">
+            </div>
+            <div class="user-data">
+                <h2><p class="name" id="name">测试</p></h2>
+                <h2><p class="nickname" id="mini_nickname">159****6895</p></h2>
+            </div>
+        </div>
+		<div class="apply-credits">
+			<div class="apply-subCredits">
+				<p class="subCredits-name">神速贷申请</p>
+				<div class="subCredits-cont">
+					<div class="subCredit-hxcode">
+						<div class="subCredit-code-left">
+							<p class="code-info-dec">可贷额度</p>
+							<p class="code-info-money">￥<span>7</span>万</p>
+						</div>
+						<div class="subCredit-code-right">
+							<p class="code-info-credit"><span>30</span>%</p>
+							<p class="code-info-credit-dec">最低首付</p>
+							<p class="code-info-date">有效期至<span>2016-09-29</span></p>
+						</div>
+						<span class="icon icon-right contractDatail"></span>
+					</div>
+					<p class="cont-codeInfo">
+						<span>车贷审批已通过，有效期至2016-09-29，请于合作经销商办理购车贷款签约</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+</div>
+#set($footerParams={"js":"jibinfoFinance/mobile/scripts/member-center.js"})
+#frontend_footer($footerParams)

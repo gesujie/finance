@@ -1,0 +1,57 @@
+#setCss()##设置自定义css
+#breadcrumbs("第三方服务,缓存管理")##设置导航栏
+<div class="miain-div-context">
+	<div class="search-widget-box">
+        <div class="form-inline" role="form">
+            <table class="search-table">
+                <tr>
+                    <td>
+						<div class="input-group">
+                    		<span class="input-group-addon">key</span>
+                    		<input style="width:500px" type="text" name="key" id="key"/>
+						</div>
+					</td>
+                    <td>
+                        <a id="serarch"  class="btn btn-success btn-search btn-sm" href="#"><i class="icon-search"></i>查询</a>
+                        <a id="reset"  class="btn  btn-grey btn-reset btn-sm" href="#"><i class="icon-repeat"></i>重置</a>
+					</td>
+				</tr>		
+            </table>
+        </div>
+    </div>
+    
+	<div id="toolbar">
+        <div class="btn-group lighter">
+			<button class="btn btn-sm disabled btn-danger">操作列表</button>&nbsp;
+            <button type="button" class="btn btn-info btn-sm btn-delete">
+				<i class="icon-trash align-top  bigger-110"></i>删除
+			</button>
+            <button type="button" class="btn btn-info btn-sm btn-delete-all">
+                <i class="icon-remove align-top  bigger-110"></i>清空所有
+            </button>
+        </div>
+    </div>
+   <table id="tb-datagrid" data-toggle="table" class="datagrid-table" data-url="$!finance_admin_path/admin/redis/getData.html"
+		  data-height="740"##	定义表格的高度。
+		  data-method="get"##	此处必须是GET，服务器数据的请求方式 'get' or 'post'
+		  data-side-pagination="server"##服务器分页
+          data-pagination="true"##显示分页
+		  data-page-size="20"##分页条数
+		  data-striped="true"##	设置为 true 会有隔行变色效果
+		  data-id-field="id"##	指定主键列
+		  data-click-to-select="true" ##单击选中checkbox
+		  data-query-params="queryParams"##请求服务器数据时参数
+		  data-toolbar="#toolbar"##
+		  >
+        <thead>
+            <tr >
+				<th data-field="state" data-checkbox="true"></th>
+                <th data-field="index" data-formatter="indexFormatter" data-width="10px">序号</th>
+                <th data-field="key">key</th>
+				<th data-field="value">value</th>
+            </tr>
+        </thead>
+   </table>
+</div>
+##设置自定义js
+#setJs("/jibinfoFinance/manager/js/finance/redis/redis.js")
